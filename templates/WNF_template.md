@@ -1,12 +1,12 @@
-## [Atrybut jako?ciowy / obszar]
+## [Atrybut jakościowy / obszar]
 
 - **WNF-XXX-01:** [wymaganie mierzalne]
 - **WNF-XXX-02:** ...
 
-### Scenariusz jako?ciowy (opcjonalnie)
-- ?r�d?o bod?ca:
+### Scenariusz jakościowy (opcjonalnie)
+- Źródło bodźca:
 - Bodziec:
 - Artefakt:
-- ?rodowisko:
+- Środowisko:
 - Reakcja:
 - Miara reakcji:

@@ -1,16 +1,16 @@
-# Specyfikacja Wymaga? Oprogramowania (SRS)
+# Specyfikacja Wymagań Oprogramowania (SRS)
 ## Platforma transmisji online z ceremonii pogrzebowej
 
 > Wersja robocza dokumentu: 0.1 (MVP)
 
 ---
 
-## Jak czyta? dokument
-Dokument jest podzielony na rozdzia?y w katalogu `docs/`. Ka?dy rozdzia? ma w?a?ciciela odpowiedzialnego za merytoryk?, a ca?o?? jest utrzymywana przez proces PR/review.
+## Jak czytać dokument
+Dokument jest podzielony na rozdziały w katalogu `docs/`. Każdy rozdział ma właściciela odpowiedzialnego za merytorykę, a całość jest utrzymywana przez proces PR/review.
 
 ---
 
-<!-- Rozdzia?y -->
+<!-- Rozdziały -->
 <!-- 1 -->
 [Link: 01_introduction.md](01_introduction.md)
 

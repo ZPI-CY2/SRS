@@ -1,17 +1,17 @@
-## [Tytu? funkcji]
+## [Tytuł funkcji]
 
 **Opis:**  
-**Powi?zane role:**  
+**Powiązane role:**  
 **Cel biznesowy:**  
 
-**Warunki wst?pne:**  
-**Warunki ko?cowe:**  
+**Warunki wstępne:**  
+**Warunki końcowe:**  
 
-### Historyjki u?ytkownika
-- Jako ..., chc? ..., abym ...
+### Historyjki użytkownika
+- Jako ..., chcę ..., abym ...
 
 ### Kryteria akceptacji
-- **WF-XXX-01: ... (Scenariusz g?�wny)**
+- **WF-XXX-01: ... (Scenariusz główny)**
   - Given:
   - And:
   - When:
@@ -19,4 +19,4 @@
   - And:
 
 - **WF-XXX-02: ... (Scenariusz alternatywny)**
-- **WF-XXX-03: ... (Scenariusz wyj?tkowy)**
+- **WF-XXX-03: ... (Scenariusz wyjątkowy)**

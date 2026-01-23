@@ -907,3 +907,5 @@ Szczególnie istotne są:
 
 Zastosowanie architektury mikroserwisowej pozwala na elastyczne dopasowanie systemu do zróżnicowanych wymagań biznesowych zakładu pogrzebowego. Szczególną uwagę poświęcono bezpieczeństwu, dostępności oraz skalowalności, co jest kluczowe w kontekście usług finansowych oraz transmisji ceremonii pogrzebowych w czasie rzeczywistym.
 
+
+

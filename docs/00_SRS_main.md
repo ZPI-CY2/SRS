@@ -1,7 +1,7 @@
 # Specyfikacja Wymagań Oprogramowania (SRS)
 ## System zakładu pogrzebowego: pre-need, nagrobki online, transmisje ceremonii
 
-Wersja robocza: 0.2
+Wersja: 1.0
 
 ## Rozdziały
 - [01 — Wstęp](01_introduction.md)
@@ -15,3 +15,4 @@ Wersja robocza: 0.2
 - [Dodatek A — Diagram przypadków użycia](appendix_a_usecase_diagram.md)
 - [Dodatek B — Persony](appendix_b_personas.md)
 - [Dodatek C — Kwestie do rozwiązania](appendix_c_open_issues.md)
+

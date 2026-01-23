@@ -3,7 +3,7 @@
 
 **Data:** 23.01.2026  
 **Wersja:** 0.1 (demonstracja możliwości)  
-**Autor:** Zespół projektowy (Osoba 1)
+**Autor:** Zespół projektowy
 
 ---
 

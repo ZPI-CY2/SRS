@@ -1,910 +1,909 @@
-# 1. Wst?p
+# 1. Wstęp
 
 ## 1.1 Cel
-Niniejszy dokument stanowi Specyfikacj? Wymaga? Oprogramowania (SRS) dla systemu informatycznego wspieraj?cego dzia?alno?? zak?adu pogrzebowego, obejmuj?cego:
-- us?ugi typu pre-need (planowanie i zakup us?ug z wyprzedzeniem),
-- sprzeda? i projektowanie nagrobk�w online,
+Niniejszy dokument stanowi Specyfikację Wymagań Oprogramowania (SRS) dla systemu informatycznego wspierającego działalność zakładu pogrzebowego, obejmującego:
+- usługi typu pre-need (planowanie i zakup usług z wyprzedzeniem),
+- sprzedaż i projektowanie nagrobków online,
 - transmisje online ceremonii pogrzebowych.
 
 Wersja dokumentu: 0.2 (zakres rozszerzony).
 
-Dokument jest przeznaczony dla interesariuszy biznesowych (w?a?ciciel zak?adu pogrzebowego, pracownicy operacyjni, projektanci/handlowcy), zespo?u projektowego i deweloperskiego oraz os�b odpowiedzialnych za testy i wdro?enie.
+Dokument jest przeznaczony dla interesariuszy biznesowych (właściciel zakładu pogrzebowego, pracownicy operacyjni, projektanci/handlowcy), zespołu projektowego i deweloperskiego oraz osób odpowiedzialnych za testy i wdrożenie.
 
-Celem SRS jest jednoznaczne opisanie zakresu systemu, wymaga? funkcjonalnych i niefunkcjonalnych oraz ogranicze? i za?o?e?, aby umo?liwi?:
-- zaprojektowanie rozwi?zania,
-- implementacj?,
-- przygotowanie test�w akceptacyjnych i jako?ciowych,
-- walidacj? oczekiwa? interesariuszy.
+Celem SRS jest jednoznaczne opisanie zakresu systemu, wymagań funkcjonalnych i niefunkcjonalnych oraz ograniczeń i założeń, aby umożliwić:
+- zaprojektowanie rozwiązania,
+- implementację,
+- przygotowanie testów akceptacyjnych i jakościowych,
+- walidację oczekiwań interesariuszy.
 
 ## 1.2 Wizja, zakres i cele produktu
 
 ### Wizja
-System ma zapewni? klientom i pracownikom zak?adu pogrzebowego jedno, sp�jne ?rodowisko do realizacji kluczowych proces�w: planowania us?ug (pre-need), konfiguracji i zakupu nagrobk�w online oraz organizacji transmisji ceremonii w spos�b godny, prywatny i niezawodny.
+System ma zapewnić klientom i pracownikom zakładu pogrzebowego jedno, spójne środowisko do realizacji kluczowych procesów: planowania usług (pre-need), konfiguracji i zakupu nagrobków online oraz organizacji transmisji ceremonii w sposób godny, prywatny i niezawodny.
 
 ### Zakres (co system robi)
-System obejmuje trzy g?�wne domeny funkcjonalne:
+System obejmuje trzy główne domeny funkcjonalne:
 
 A) Pre-need:
-- Utworzenie i edycja planu us?ug pogrzebowych z wyprzedzeniem (plan pre-need).
-- Prezentacja koszt�w oraz wariant�w us?ug i rejestracja decyzji klienta.
-- Przechowywanie dokument�w, zg�d i informacji wymaganych do realizacji planu.
-- Udost?pnienie planu uprawnionym osobom (np. beneficjent/rodzina) wed?ug polityki dost?pu.
+- Utworzenie i edycja planu usług pogrzebowych z wyprzedzeniem (plan pre-need).
+- Prezentacja kosztów oraz wariantów usług i rejestracja decyzji klienta.
+- Przechowywanie dokumentów, zgód i informacji wymaganych do realizacji planu.
+- Udostępnienie planu uprawnionym osobom (np. beneficjent/rodzina) według polityki dostępu.
 
 B) Nagrobki online:
-- Prezentacja katalogu nagrobk�w i akcesori�w (produkty, warianty, dodatki).
-- Konfigurator/projektowanie: wyb�r opcji (materia?, wymiary, napis, dodatki) oraz zapis projektu.
-- Proces wyceny, zam�wienia i p?atno?ci oraz obs?uga status�w realizacji.
-- Workflow akceptacji projektu (wersje projektu ? akceptacja klienta ? przekazanie do realizacji).
+- Prezentacja katalogu nagrobków i akcesoriów (produkty, warianty, dodatki).
+- Konfigurator/projektowanie: wybór opcji (materiał, wymiary, napis, dodatki) oraz zapis projektu.
+- Proces wyceny, zamówienia i płatności oraz obsługa statusów realizacji.
+- Workflow akceptacji projektu (wersje projektu → akceptacja klienta → przekazanie do realizacji).
 
 C) Transmisje ceremonii:
-- Zam�wienie transmisji i konfiguracja prywatnego dost?pu (link/token).
-- Do??czenie do transmisji jednym klikni?ciem (bez skomplikowanej rejestracji).
-- Narz?dzia operatora: powi?zanie transmisji z ceremoni?, test obrazu i d?wi?ku oraz podstawowy monitoring w trakcie.
+- Zamówienie transmisji i konfiguracja prywatnego dostępu (link/token).
+- Dołączenie do transmisji jednym kliknięciem (bez skomplikowanej rejestracji).
+- Narzędzia operatora: powiązanie transmisji z ceremonią, test obrazu i dźwięku oraz podstawowy monitoring w trakcie.
 
-Dodatkowo system obejmuje funkcje wsp�lne:
-- zarz?dzanie kontami, rolami i uprawnieniami,
-- powiadomienia (e-mail/SMS) o statusach (np. projekt do akceptacji, potwierdzenie zam�wienia, link do transmisji),
-- podstawowy panel administracyjny (monitoring, rozliczenia, zgodno?? z przepisami).
+Dodatkowo system obejmuje funkcje wspólne:
+- zarządzanie kontami, rolami i uprawnieniami,
+- powiadomienia (e-mail/SMS) o statusach (np. projekt do akceptacji, potwierdzenie zamówienia, link do transmisji),
+- podstawowy panel administracyjny (monitoring, rozliczenia, zgodność z przepisami).
 
 ### Cele biznesowe i KPIs (mierzalne kryteria sukcesu)
-W obszarze transmisji (bazuj?c na za?o?eniach MVP z materia?�w wej?ciowych):
-- KPI-TR-01: W ci?gu 6 miesi?cy od uruchomienia MVP co najmniej 25% ceremonii w zak?adach wsp�?pracuj?cych ma by? transmitowanych online z wykorzystaniem platformy.
-- KPI-TR-02: ?rednia ocena satysfakcji rodzin z jako?ci transmisji oraz ?atwo?ci dost?pu ? 4,0/5.
-- KPI-TR-03: Odsetek ceremonii z powa?nym incydentem technicznym (np. przerwanie transmisji > 2 minuty) ? 2%.
+W obszarze transmisji (bazując na założeniach MVP z materiałów wejściowych):
+- KPI-TR-01: W ciągu 6 miesięcy od uruchomienia MVP co najmniej 25% ceremonii w zakładach współpracujących ma być transmitowanych online z wykorzystaniem platformy.
+- KPI-TR-02: Średnia ocena satysfakcji rodzin z jakości transmisji oraz łatwości dostępu ≥ 4,0/5.
+- KPI-TR-03: Odsetek ceremonii z poważnym incydentem technicznym (np. przerwanie transmisji > 2 minuty) ≤ 2%.
 
-Dla obszaru pre-need i nagrobk�w online (do doprecyzowania z interesariuszem podczas analizy wymaga?):
-- KPI-PN-01: Odsetek u?ytkownik�w, kt�rzy uko?cz? konfiguracj? planu pre-need (draft ? zaakceptowany) ? X% w okresie Y.
-- KPI-NG-01: Wsp�?czynnik konwersji w module nagrobk�w (koszyk ? zam�wienie op?acone) ? X% w okresie Y.
-- KPI-NG-02: Odsetek projekt�w nagrobk�w zaakceptowanych w pierwszej iteracji ? X% (jako miara jako?ci konfiguratora i procesu ofertowania).
-Uwaga: warto?ci X i Y zostan? uzupe?nione w trakcie walidacji wymaga?.
+Dla obszaru pre-need i nagrobków online (do doprecyzowania z interesariuszem podczas analizy wymagań):
+- KPI-PN-01: Odsetek użytkowników, którzy ukończą konfigurację planu pre-need (draft → zaakceptowany) ≥ X% w okresie Y.
+- KPI-NG-01: Współczynnik konwersji w module nagrobków (koszyk → zamówienie opłacone) ≥ X% w okresie Y.
+- KPI-NG-02: Odsetek projektów nagrobków zaakceptowanych w pierwszej iteracji ≥ X% (jako miara jakości konfiguratora i procesu ofertowania).
+Uwaga: wartości X i Y zostaną uzupełnione w trakcie walidacji wymagań.
 
 ### Poza zakresem (dla MVP / pierwszej wersji)
-Poza zakresem pierwszej wersji (o ile nie zostanie ustalone inaczej) pozostaj?:
-- Budowa w?asnej infrastruktury streamingowej od zera (zak?adamy u?ycie chmury: live streaming + CDN).
-- Rozbudowana integracja z zewn?trznymi systemami ERP/ksi?gowymi oraz pe?ne procesy magazynowe.
-- Zaawansowany konfigurator 3D/AR w czasie rzeczywistym (mo?liwy w kolejnych iteracjach).
-- Multi-region jako domy?lna konfiguracja infrastruktury (zale?ne od koszt�w i potrzeb).
+Poza zakresem pierwszej wersji (o ile nie zostanie ustalone inaczej) pozostają:
+- Budowa własnej infrastruktury streamingowej od zera (zakładamy użycie chmury: live streaming + CDN).
+- Rozbudowana integracja z zewnętrznymi systemami ERP/księgowymi oraz pełne procesy magazynowe.
+- Zaawansowany konfigurator 3D/AR w czasie rzeczywistym (możliwy w kolejnych iteracjach).
+- Multi-region jako domyślna konfiguracja infrastruktury (zależne od kosztów i potrzeb).
 
-## 1.3 Definicje, akronimy i skr�ty
-- SRS � Specyfikacja Wymaga? Oprogramowania.
-- MVP � Minimum Viable Product.
-- KPI � Key Performance Indicator.
-- Pre-need � zakup/planowanie us?ug pogrzebowych z wyprzedzeniem.
-- Beneficjent / osoba uprawniona � osoba, kt�ra mo?e uzyska? dost?p do planu pre-need lub informacji o ceremonii.
-- Konfigurator nagrobk�w � modu? umo?liwiaj?cy personalizacj? i zapis projektu nagrobka.
-- Wycena � wyliczenie kosztu projektu/produktu wraz z dodatkami i us?ug? monta?u (je?li dotyczy).
-- Akceptacja projektu � zatwierdzenie przez klienta wersji projektu do realizacji.
-- LIVE � transmisja na ?ywo.
-- CDN � Content Delivery Network.
-- Token / prywatny link � mechanizm autoryzacji dost?pu do transmisji lub zasobu.
-- EOG � Europejski Obszar Gospodarczy.
-- RODO/GDPR � przepisy o ochronie danych osobowych.
+## 1.3 Definicje, akronimy i skróty
+- SRS — Specyfikacja Wymagań Oprogramowania.
+- MVP — Minimum Viable Product.
+- KPI — Key Performance Indicator.
+- Pre-need — zakup/planowanie usług pogrzebowych z wyprzedzeniem.
+- Beneficjent / osoba uprawniona — osoba, która może uzyskać dostęp do planu pre-need lub informacji o ceremonii.
+- Konfigurator nagrobków — moduł umożliwiający personalizację i zapis projektu nagrobka.
+- Wycena — wyliczenie kosztu projektu/produktu wraz z dodatkami i usługą montażu (jeśli dotyczy).
+- Akceptacja projektu — zatwierdzenie przez klienta wersji projektu do realizacji.
+- LIVE — transmisja na żywo.
+- CDN — Content Delivery Network.
+- Token / prywatny link — mechanizm autoryzacji dostępu do transmisji lub zasobu.
+- EOG — Europejski Obszar Gospodarczy.
+- RODO/GDPR — przepisy o ochronie danych osobowych.
 
-## 1.4 Przegl?d dokumentu
-- Rozdzia? 2 przedstawia og�lny opis produktu: modu?y, role u?ytkownik�w, ograniczenia i za?o?enia.
-- Rozdzia? 3 opisuje interfejsy zewn?trzne: UI (w tym makiety g?�wnego przypadku u?ycia) oraz integracje API (p?atno?ci, powiadomienia, streaming).
-- Rozdzia? 4 zawiera wymagania funkcjonalne (User Stories i kryteria akceptacji Given-When-Then) oraz ich priorytety.
-- Rozdzia? 5 opisuje wymagania niefunkcjonalne/atrybuty jako?ciowe (mierzalne i weryfikowalne) dla ca?ego systemu.
-- Rozdzia? 6 zawiera analiz? por�wnawcz? i wnioski wp?ywaj?ce na wymagania.
-- Dodatki zawieraj? modele analityczne (diagram przypadk�w u?ycia), persony oraz list? kwestii otwartych.
+## 1.4 Przegląd dokumentu
+- Rozdział 2 przedstawia ogólny opis produktu: moduły, role użytkowników, ograniczenia i założenia.
+- Rozdział 3 opisuje interfejsy zewnętrzne: UI (w tym makiety głównego przypadku użycia) oraz integracje API (płatności, powiadomienia, streaming).
+- Rozdział 4 zawiera wymagania funkcjonalne (User Stories i kryteria akceptacji Given-When-Then) oraz ich priorytety.
+- Rozdział 5 opisuje wymagania niefunkcjonalne/atrybuty jakościowe (mierzalne i weryfikowalne) dla całego systemu.
+- Rozdział 6 zawiera analizę porównawczą i wnioski wpływające na wymagania.
+- Dodatki zawierają modele analityczne (diagram przypadków użycia), persony oraz listę kwestii otwartych.
 
-# 2. Opis og�lny
+# 2. Opis ogólny
 
-## 2.1 G?�wne funkcje produktu
-System informatyczny zak?adu pogrzebowego sk?ada si? z trzech g?�wnych domen funkcjonalnych oraz funkcji wsp�lnych (cross-cutting). Poni?sze modu?y opisuj? zakres na wysokim poziomie; szczeg�?y znajduj? si? w Rozdziale 4.
+## 2.1 Główne funkcje produktu
+System informatyczny zakładu pogrzebowego składa się z trzech głównych domen funkcjonalnych oraz funkcji wspólnych (cross-cutting). Poniższe moduły opisują zakres na wysokim poziomie; szczegóły znajdują się w Rozdziale 4.
 
-### A) Modu? Pre-need (planowanie i zakup us?ug z wyprzedzeniem)
-- F-PN-01: Utworzenie planu pre-need (konfiguracja us?ug, preferencji, bud?etu).
-- F-PN-02: Edycja i wersjonowanie planu (statusy: draft/zaakceptowany/op?acony).
-- F-PN-03: Dokumenty i zgody (obs?uga o?wiadcze? i informacji wymaganych do realizacji planu).
-- F-PN-04: Udost?pnienie planu osobom uprawnionym (np. beneficjent/rodzina) zgodnie z polityk? dost?pu.
+### A) Moduł Pre-need (planowanie i zakup usług z wyprzedzeniem)
+- F-PN-01: Utworzenie planu pre-need (konfiguracja usług, preferencji, budżetu).
+- F-PN-02: Edycja i wersjonowanie planu (statusy: draft/zaakceptowany/opłacony).
+- F-PN-03: Dokumenty i zgody (obsługa oświadczeń i informacji wymaganych do realizacji planu).
+- F-PN-04: Udostępnienie planu osobom uprawnionym (np. beneficjent/rodzina) zgodnie z polityką dostępu.
 
-### B) Modu? Nagrobki online (sprzeda? + projektowanie)
-- F-NG-01: Katalog produkt�w (nagrobki, akcesoria) z filtrowaniem i wyszukiwaniem.
-- F-NG-02: Konfigurator/projektowanie nagrobka (warianty, materia?, wymiary, napis, dodatki).
-- F-NG-03: Wycena i proces zam�wienia (koszyk, dane do realizacji, p?atno??).
-- F-NG-04: Workflow projektu i akceptacji (wersje projektu ? akceptacja klienta ? przekazanie do realizacji).
-- F-NG-05: Statusy realizacji i komunikacja (powiadomienia o zmianach statusu zam�wienia/projektu).
+### B) Moduł Nagrobki online (sprzedaż + projektowanie)
+- F-NG-01: Katalog produktów (nagrobki, akcesoria) z filtrowaniem i wyszukiwaniem.
+- F-NG-02: Konfigurator/projektowanie nagrobka (warianty, materiał, wymiary, napis, dodatki).
+- F-NG-03: Wycena i proces zamówienia (koszyk, dane do realizacji, płatność).
+- F-NG-04: Workflow projektu i akceptacji (wersje projektu → akceptacja klienta → przekazanie do realizacji).
+- F-NG-05: Statusy realizacji i komunikacja (powiadomienia o zmianach statusu zamówienia/projektu).
 
-### C) Modu? Transmisji ceremonii
-- F-TR-01: Zam�wienie transmisji dla ceremonii.
-- F-TR-02: Prywatny dost?p (generowanie linku/tokena, kontrola dost?pu).
-- F-TR-03: Do??czenie do transmisji (jeden klik, minimalne tarcie dla uczestnika).
-- F-TR-04: Panel operatora (powi?zanie transmisji z ceremoni?, test A/V, monitoring statusu).
+### C) Moduł Transmisji ceremonii
+- F-TR-01: Zamówienie transmisji dla ceremonii.
+- F-TR-02: Prywatny dostęp (generowanie linku/tokena, kontrola dostępu).
+- F-TR-03: Dołączenie do transmisji (jeden klik, minimalne tarcie dla uczestnika).
+- F-TR-04: Panel operatora (powiązanie transmisji z ceremonią, test A/V, monitoring statusu).
 
-### D) Funkcje wsp�lne (cross-cutting)
-- F-COM-01: Konta u?ytkownik�w, role i uprawnienia.
-- F-COM-02: Powiadomienia (e-mail/SMS) dla kluczowych zdarze? (np. projekt do akceptacji, potwierdzenie zam�wienia, link do transmisji).
-- F-COM-03: Panel administracyjny (zarz?dzanie organizacj?, monitoring, podstawowe raportowanie).
-- F-COM-04: Audyt dzia?a? (rejestrowanie krytycznych akcji w systemie).
+### D) Funkcje wspólne (cross-cutting)
+- F-COM-01: Konta użytkowników, role i uprawnienia.
+- F-COM-02: Powiadomienia (e-mail/SMS) dla kluczowych zdarzeń (np. projekt do akceptacji, potwierdzenie zamówienia, link do transmisji).
+- F-COM-03: Panel administracyjny (zarządzanie organizacją, monitoring, podstawowe raportowanie).
+- F-COM-04: Audyt działań (rejestrowanie krytycznych akcji w systemie).
 
-## 2.2 Klasy u?ytkownik�w
+## 2.2 Klasy użytkowników
 
 ### U-01: Klient pre-need (planowanie)
-Osoba planuj?ca i (potencjalnie) op?acaj?ca us?ugi pogrzebowe z wyprzedzeniem.
-Cele: spokojne przej?cie przez konfiguracj? planu, pewno?? i przejrzysto?? koszt�w, mo?liwo?? aktualizacji danych.
-Modu?y: Pre-need, Funkcje wsp�lne (powiadomienia, dokumenty, konto).
+Osoba planująca i (potencjalnie) opłacająca usługi pogrzebowe z wyprzedzeniem.
+Cele: spokojne przejście przez konfigurację planu, pewność i przejrzystość kosztów, możliwość aktualizacji danych.
+Moduły: Pre-need, Funkcje wspólne (powiadomienia, dokumenty, konto).
 
 ### U-02: Beneficjent / rodzina (osoba uprawniona)
-Osoba, kt�ra ma otrzyma? dost?p do planu pre-need w okre?lonym momencie (lub wgl?d do ustale?).
-Cele: szybki dost?p do ustale?, unikni?cie nieporozumie?, kontrola zgodno?ci realizacji z planem.
-Modu?y: Pre-need (wgl?d), Funkcje wsp�lne (uprawnienia).
+Osoba, która ma otrzymać dostęp do planu pre-need w określonym momencie (lub wgląd do ustaleń).
+Cele: szybki dostęp do ustaleń, uniknięcie nieporozumień, kontrola zgodności realizacji z planem.
+Moduły: Pre-need (wgląd), Funkcje wspólne (uprawnienia).
 
-### U-03: Klient nagrobk�w (kupuj?cy / zamawiaj?cy)
-Osoba konfiguruj?ca i zamawiaj?ca nagrobek oraz akcesoria.
-Cele: ?atwe por�wnanie wariant�w, czytelna wycena, prosty proces zam�wienia i akceptacji projektu.
-Modu?y: Nagrobki online, Funkcje wsp�lne (powiadomienia, p?atno?ci).
+### U-03: Klient nagrobków (kupujący / zamawiający)
+Osoba konfigurująca i zamawiająca nagrobek oraz akcesoria.
+Cele: łatwe porównanie wariantów, czytelna wycena, prosty proces zamówienia i akceptacji projektu.
+Moduły: Nagrobki online, Funkcje wspólne (powiadomienia, płatności).
 
-### U-04: Projektant / handlowiec zak?adu pogrzebowego
-Pracownik obs?uguj?cy wyceny, konsultacje oraz przygotowanie wersji projektu do akceptacji.
-Cele: szybkie przygotowanie i iterowanie projektu, minimalizacja b??d�w, sprawna komunikacja z klientem.
-Modu?y: Nagrobki online (workflow projektu), Funkcje wsp�lne (audyt, powiadomienia).
+### U-04: Projektant / handlowiec zakładu pogrzebowego
+Pracownik obsługujący wyceny, konsultacje oraz przygotowanie wersji projektu do akceptacji.
+Cele: szybkie przygotowanie i iterowanie projektu, minimalizacja błędów, sprawna komunikacja z klientem.
+Moduły: Nagrobki online (workflow projektu), Funkcje wspólne (audyt, powiadomienia).
 
-### U-05: Pracownik operacyjny zak?adu (realizacja us?ug)
-Pracownik odpowiedzialny za realizacj? us?ug, terminy, harmonogram i obs?ug? klienta.
-Cele: wgl?d w zam�wienia i statusy, jedno ?r�d?o prawdy, ograniczenie pomy?ek.
-Modu?y: Pre-need (realizacja), Nagrobki (statusy), Transmisje (harmonogram), Funkcje wsp�lne.
+### U-05: Pracownik operacyjny zakładu (realizacja usług)
+Pracownik odpowiedzialny za realizację usług, terminy, harmonogram i obsługę klienta.
+Cele: wgląd w zamówienia i statusy, jedno źródło prawdy, ograniczenie pomyłek.
+Moduły: Pre-need (realizacja), Nagrobki (statusy), Transmisje (harmonogram), Funkcje wspólne.
 
 ### U-06: Operator transmisji (technik)
-Osoba uruchamiaj?ca i nadzoruj?ca transmisj? ceremonii.
-Cele: prosta konfiguracja, test A/V przed startem, szybka identyfikacja problem�w.
-Modu?y: Transmisje ceremonii.
+Osoba uruchamiająca i nadzorująca transmisję ceremonii.
+Cele: prosta konfiguracja, test A/V przed startem, szybka identyfikacja problemów.
+Moduły: Transmisje ceremonii.
 
 ### U-07: Zdalny uczestnik ceremonii
-Osoba do??czaj?ca do transmisji przez link/token.
-Cele: do??czenie bez skomplikowanej rejestracji, stabilny odbi�r, prywatno??.
-Modu?y: Transmisje ceremonii.
+Osoba dołączająca do transmisji przez link/token.
+Cele: dołączenie bez skomplikowanej rejestracji, stabilny odbiór, prywatność.
+Moduły: Transmisje ceremonii.
 
-### U-08: Administrator systemu / w?a?ciciel platformy
-Osoba odpowiedzialna za utrzymanie systemu, konfiguracj? organizacji, monitoring i zgodno??.
-Cele: kontrola dost?pu, monitoring, raporty, zgodno?? z przepisami.
-Modu?y: Funkcje wsp�lne + przekrojowy wgl?d.
+### U-08: Administrator systemu / właściciel platformy
+Osoba odpowiedzialna za utrzymanie systemu, konfigurację organizacji, monitoring i zgodność.
+Cele: kontrola dostępu, monitoring, raporty, zgodność z przepisami.
+Moduły: Funkcje wspólne + przekrojowy wgląd.
 
 ## 2. Kluczowe wymagania i priorytetyzacja dla MVP
 
-### Wymagania u?ytkownika (User Stories)
+### Wymagania użytkownika (User Stories)
 
-1. **Jako organizator pogrzebu (cz?onek rodziny)** chc? zam�wi? us?ug? transmisji online razem z innymi us?ugami pogrzebowymi, aby za?atwi? wszystkie formalno?ci w jednym miejscu i nie zajmowa? si? technikaliami.
+1. **Jako organizator pogrzebu (członek rodziny)** chcę zamówić usługę transmisji online razem z innymi usługami pogrzebowymi, aby załatwić wszystkie formalności w jednym miejscu i nie zajmować się technikaliami.
 
-2. **Jako organizator pogrzebu** chc? wygenerowa? prywatny link do transmisji oraz udost?pni? go wybranym osobom (np. e-mailem lub komunikatorem), aby tylko zaproszeni mogli uczestniczy? w ceremonii.
+2. **Jako organizator pogrzebu** chcę wygenerować prywatny link do transmisji oraz udostępnić go wybranym osobom (np. e-mailem lub komunikatorem), aby tylko zaproszeni mogli uczestniczyć w ceremonii.
 
-3. **Jako zdalny uczestnik ceremonii** chc? do??czy? do transmisji jednym klikni?ciem w link, bez konieczno?ci zak?adania konta, aby szybko i bezproblemowo wzi?? udzia? w pogrzebie.
+3. **Jako zdalny uczestnik ceremonii** chcę dołączyć do transmisji jednym kliknięciem w link, bez konieczności zakładania konta, aby szybko i bezproblemowo wziąć udział w pogrzebie.
 
-4. **Jako pracownik zak?adu pogrzebowego** chc? powi?za? transmisj? z konkretn? ceremoni? w harmonogramie (data, godzina, miejsce), aby mie? pewno??, ?e transmisja zostanie uruchomiona we w?a?ciwym czasie.
+4. **Jako pracownik zakładu pogrzebowego** chcę powiązać transmisję z konkretną ceremonią w harmonogramie (data, godzina, miejsce), aby mieć pewność, że transmisja zostanie uruchomiona we właściwym czasie.
 
-5. **Jako pracownik zak?adu pogrzebowego** chc? w prosty spos�b przetestowa? obraz i d?wi?k przed rozpocz?ciem ceremonii, aby zminimalizowa? ryzyko problem�w technicznych w trakcie transmisji.
+5. **Jako pracownik zakładu pogrzebowego** chcę w prosty sposób przetestować obraz i dźwięk przed rozpoczęciem ceremonii, aby zminimalizować ryzyko problemów technicznych w trakcie transmisji.
 
-6. **Jako organizator pogrzebu** chc? mie? mo?liwo?? odtworzenia nagrania z ceremonii przez ograniczony czas po pogrzebie, aby osoby, kt�re nie mog?y uczestniczy? na ?ywo, mog?y obejrze? uroczysto?? p�?niej.
+6. **Jako organizator pogrzebu** chcę mieć możliwość odtworzenia nagrania z ceremonii przez ograniczony czas po pogrzebie, aby osoby, które nie mogły uczestniczyć na żywo, mogły obejrzeć uroczystość później.
 
-7. **Jako administrator systemu** chc? widzie? statystyki liczby transmisji i zdalnych uczestnik�w, aby m�c oceni? wykorzystanie platformy przez wsp�?pracuj?ce zak?ady pogrzebowe.
+7. **Jako administrator systemu** chcę widzieć statystyki liczby transmisji i zdalnych uczestników, aby móc ocenić wykorzystanie platformy przez współpracujące zakłady pogrzebowe.
 
 ---
 
-### Priorytetyzacja wymaga? dla MVP
+### Priorytetyzacja wymagań dla MVP
 
-Priorytetyzacja zosta?a wykonana w oparciu o skal? Fibonacciego  
-*(1, 2, 3, 5, 8, 13, 21)* oraz wz�r:
+Priorytetyzacja została wykonana w oparciu o skalę Fibonacciego  
+*(1, 2, 3, 5, 8, 13, 21)* oraz wzór:
 
-**Priorytet = (Korzy?? + Kara) / (Koszt + Ryzyko)**
+**Priorytet = (Korzyść + Kara) / (Koszt + Ryzyko)**
 
-| Funkcja / User Story (skr�t) | Korzy?? | Kara | Koszt | Ryzyko | Priorytet |
+| Funkcja / User Story (skrót) | Korzyść | Kara | Koszt | Ryzyko | Priorytet |
 |-----------------------------|---------|------|-------|--------|-----------|
-| Zam�wienie transmisji razem z us?ugami pogrzebowymi | 13 | 13 | 8 | 5 | ? 2,0 |
-| Generowanie prywatnego linku i udost?pnianie zaproszonym osobom | 13 | 13 | 5 | 3 | ? 3,25 |
-| Do??czenie do transmisji jednym klikni?ciem, bez zak?adania konta | 13 | 13 | 5 | 5 | 2,6 |
-| Powi?zanie transmisji z konkretn? ceremoni? w harmonogramie | 8 | 8 | 5 | 3 | 2,0 |
-| Test obrazu i d?wi?ku przed ceremoni? | 8 | 8 | 3 | 3 | ? 2,67 |
+| Zamówienie transmisji razem z usługami pogrzebowymi | 13 | 13 | 8 | 5 | ≈ 2,0 |
+| Generowanie prywatnego linku i udostępnianie zaproszonym osobom | 13 | 13 | 5 | 3 | ≈ 3,25 |
+| Dołączenie do transmisji jednym kliknięciem, bez zakładania konta | 13 | 13 | 5 | 5 | 2,6 |
+| Powiązanie transmisji z konkretną ceremonią w harmonogramie | 8 | 8 | 5 | 3 | 2,0 |
+| Test obrazu i dźwięku przed ceremonią | 8 | 8 | 3 | 3 | ≈ 2,67 |
 | Odtwarzanie nagrania ceremonii przez ograniczony czas po pogrzebie | 8 | 5 | 8 | 5 | 1,0 |
-| Statystyki liczby transmisji i zdalnych uczestnik�w | 5 | 3 | 5 | 3 | 1,0 |
+| Statystyki liczby transmisji i zdalnych uczestników | 5 | 3 | 5 | 3 | 1,0 |
 
 ---
 
-### Funkcje o najwy?szym priorytecie
+### Funkcje o najwyższym priorytecie
 
-Na potrzeby tej analizy najwy?szy priorytet maj? funkcje:
+Na potrzeby tej analizy najwyższy priorytet mają funkcje:
 
-- generowanie prywatnego linku i jego udost?pnianie (2),
-- do??czenie do transmisji jednym klikni?ciem (3),
-- test obrazu i d?wi?ku przed ceremoni? (5),
-- zam�wienie transmisji wraz z us?ugami pogrzebowymi (1),
-- podstawowe powi?zanie z harmonogramem ceremonii (4).
+- generowanie prywatnego linku i jego udostępnianie (2),
+- dołączenie do transmisji jednym kliknięciem (3),
+- test obrazu i dźwięku przed ceremonią (5),
+- zamówienie transmisji wraz z usługami pogrzebowymi (1),
+- podstawowe powiązanie z harmonogramem ceremonii (4).
 
 ---
 
-### Zakres MVP � uzasadnienie
+### Zakres MVP – uzasadnienie
 
-MVP powinien skupi? si? na umo?liwieniu realizacji **stabilnej i prywatnej transmisji** z minimalnym tarciem po stronie rodziny oraz zdalnych uczestnik�w. Bezpo?rednio wspiera to g?�wny cel biznesowy: wysoki udzia? transmisji w ceremoniach oraz wysoki poziom satysfakcji rodzin.
+MVP powinien skupić się na umożliwieniu realizacji **stabilnej i prywatnej transmisji** z minimalnym tarciem po stronie rodziny oraz zdalnych uczestników. Bezpośrednio wspiera to główny cel biznesowy: wysoki udział transmisji w ceremoniach oraz wysoki poziom satysfakcji rodzin.
 
-#### Funkcje wchodz?ce w zakres MVP
+#### Funkcje wchodzące w zakres MVP
 
-- zam�wienie transmisji wraz z us?ugami pogrzebowymi (1),
-- generowanie prywatnego linku i zarz?dzanie dost?pem (2),
-- proste do??czenie do transmisji bez rejestracji (3),
-- powi?zanie transmisji z harmonogramem ceremonii (4),
-- test jako?ci obrazu i d?wi?ku przed rozpocz?ciem ceremonii (5).
+- zamówienie transmisji wraz z usługami pogrzebowymi (1),
+- generowanie prywatnego linku i zarządzanie dostępem (2),
+- proste dołączenie do transmisji bez rejestracji (3),
+- powiązanie transmisji z harmonogramem ceremonii (4),
+- test jakości obrazu i dźwięku przed rozpoczęciem ceremonii (5).
 
 #### Funkcje poza zakresem MVP
 
-Funkcje o ni?szym priorytecie, takie jak:
+Funkcje o niższym priorytecie, takie jak:
 - odtwarzanie nagrania po ceremonii (6),
 - rozbudowane statystyki (7),
 
-mog? zosta? zrealizowane w kolejnych iteracjach, poniewa? nie s? krytyczne dla podstawowego do?wiadczenia **�uczestnictwa na ?ywo�**.
+mogą zostać zrealizowane w kolejnych iteracjach, ponieważ nie są krytyczne dla podstawowego doświadczenia **„uczestnictwa na żywo”**.
 
-# 3. Wymagania dotycz?ce interfejs�w zewn?trznych
+# 3. Wymagania dotyczące interfejsów zewnętrznych
 
-## 3.1 Interfejsy u?ytkownika (UI)
+## 3.1 Interfejsy użytkownika (UI)
 
-### Za?o?enia og�lne UI
-Interfejs u?ytkownika ma minimalizowa? liczb? krok�w w kluczowych procesach oraz by? czytelny dla u?ytkownik�w o niskich kompetencjach cyfrowych (w tym osoby starsze). UI ma by? responsywny (desktop i mobile) oraz stosowa? prosty j?zyk i jednoznaczne komunikaty status�w.
+### Założenia ogólne UI
+Interfejs użytkownika ma minimalizować liczbę kroków w kluczowych procesach oraz być czytelny dla użytkowników o niskich kompetencjach cyfrowych (w tym osoby starsze). UI ma być responsywny (desktop i mobile) oraz stosować prosty język i jednoznaczne komunikaty statusów.
 
-### G?�wny przypadek u?ycia zamodelowany w makietach
-Wybrany g?�wny przypadek u?ycia: �Konfiguracja i zam�wienie nagrobka online wraz z akceptacj? projektu�.
+### Główny przypadek użycia zamodelowany w makietach
+Wybrany główny przypadek użycia: „Konfiguracja i zamówienie nagrobka online wraz z akceptacją projektu”.
 
-Makiety zawieraj? ?cie?k?:
-- Katalog ? karta produktu ? konfigurator ? wycena ? koszyk ? checkout ? status zam�wienia ? akceptacja projektu.
+Makiety zawierają ścieżkę:
+- Katalog → karta produktu → konfigurator → wycena → koszyk → checkout → status zamówienia → akceptacja projektu.
 
-**Podgl?d ekran�w procesu:**
+**Podgląd ekranów procesu:**
 ![Ekran startowy](../mockups/1_Start.png)
 ![Projektowanie i konfiguracja](../mockups/3_Projektowanie.png)
 
-Link do szablonu (pe?ny przebieg):
-![Pe?ny szablon animacja](../mockups/5_FullTemplate.gif)
+Link do szablonu (pełny przebieg):
+![Pełny szablon animacja](../mockups/5_FullTemplate.gif)
 
-### Pozosta?e kluczowe ekrany (opis tekstowy, bez pe?nych makiet)
+### Pozostałe kluczowe ekrany (opis tekstowy, bez pełnych makiet)
 A) Pre-need:
-- Utworzenie planu (kroki konfiguracji us?ug i danych).
-- Podsumowanie koszt�w i status planu (draft/zaakceptowany/op?acony).
+- Utworzenie planu (kroki konfiguracji usług i danych).
+- Podsumowanie kosztów i status planu (draft/zaakceptowany/opłacony).
 - Dokumenty i zgody.
 
 ![Planowanie Pre-need](../mockups/2_Planowanie.png)
 
 B) Transmisje ceremonii:
-- Strona do??czenia do transmisji przez prywatny link/token.
-- Panel operatora: powi?zanie transmisji z ceremoni?, test A/V, status transmisji.
-- Panel organizatora: zam�wienie transmisji i wygenerowanie linku.
+- Strona dołączenia do transmisji przez prywatny link/token.
+- Panel operatora: powiązanie transmisji z ceremonią, test A/V, status transmisji.
+- Panel organizatora: zamówienie transmisji i wygenerowanie linku.
 
 ![Panel Transmisji](../mockups/4_Transmisje.png)
 
-C) Projektowanie nagrobk�w online:
-- Interfejs konfiguratora wizualnego (wyb�r kszta?tu, rodzaju kamienia, napis�w).
-- Podgl?d projektu w czasie rzeczywistym.
-- Dynamiczna kalkulacja ceny w zale?no?ci od wybranej konfiguracji i dodatk�w.
+C) Projektowanie nagrobków online:
+- Interfejs konfiguratora wizualnego (wybór kształtu, rodzaju kamienia, napisów).
+- Podgląd projektu w czasie rzeczywistym.
+- Dynamiczna kalkulacja ceny w zależności od wybranej konfiguracji i dodatków.
 
 ![Projektowanie i konfiguracja](../mockups/3_Projektowanie.png)
 
 ## 3.2 Interfejsy programowe (API) i integracje
 
-### Integracja: P?atno?ci online (wymagana dla nagrobk�w online; opcjonalna dla pre-need)
-Cel: obs?uga p?atno?ci za zam�wienia (nagrobki) oraz ewentualnie op?aty za plan pre-need.
+### Integracja: Płatności online (wymagana dla nagrobków online; opcjonalna dla pre-need)
+Cel: obsługa płatności za zamówienia (nagrobki) oraz ewentualnie opłaty za plan pre-need.
 
 Zakres integracji:
-- Utworzenie p?atno?ci dla zam�wienia.
-- Odbi�r potwierdzenia p?atno?ci (webhook/callback).
-- Obs?uga status�w: rozpocz?ta / op?acona / odrzucona / wygas?a / zwr�cona (je?li w zakresie).
-- Idempotencja: powt�rzone powiadomienia z bramki p?atno?ci nie mog? powodowa? zdublowania op?acenia zam�wienia.
+- Utworzenie płatności dla zamówienia.
+- Odbiór potwierdzenia płatności (webhook/callback).
+- Obsługa statusów: rozpoczęta / opłacona / odrzucona / wygasła / zwrócona (jeśli w zakresie).
+- Idempotencja: powtórzone powiadomienia z bramki płatności nie mogą powodować zdublowania opłacenia zamówienia.
 
 Minimalny model danych (logiczny):
 - order_id, amount, currency, payment_status, provider_reference, created_at, updated_at.
 
-### Integracja: Powiadomienia e-mail/SMS (wsp�lna dla wszystkich modu?�w)
-Cel: informowanie klient�w i pracownik�w o zdarzeniach systemowych.
+### Integracja: Powiadomienia e-mail/SMS (wspólna dla wszystkich modułów)
+Cel: informowanie klientów i pracowników o zdarzeniach systemowych.
 
-Przyk?adowe zdarzenia:
-- potwierdzenie z?o?enia zam�wienia nagrobka,
-- �projekt do akceptacji� i �zaakceptowano projekt�,
-- zmiana statusu zam�wienia,
+Przykładowe zdarzenia:
+- potwierdzenie złożenia zamówienia nagrobka,
+- „projekt do akceptacji” i „zaakceptowano projekt”,
+- zmiana statusu zamówienia,
 - link/token do transmisji ceremonii,
 - potwierdzenie akceptacji planu pre-need.
 
 Minimalne operacje:
-- wysy?ka wiadomo?ci (email/SMS),
-- logowanie wysy?ek (status: wys?ano/b??d) w celu diagnostyki.
+- wysyłka wiadomości (email/SMS),
+- logowanie wysyłek (status: wysłano/błąd) w celu diagnostyki.
 
-### Integracja: Dostawca streamingu LIVE + CDN (wymagana dla modu?u transmisji)
-Cel: realizacja transmisji live i dystrybucja tre?ci do uczestnik�w z zapewnieniem jako?ci i skalowalno?ci.
+### Integracja: Dostawca streamingu LIVE + CDN (wymagana dla modułu transmisji)
+Cel: realizacja transmisji live i dystrybucja treści do uczestników z zapewnieniem jakości i skalowalności.
 
 Zakres integracji po stronie systemu:
 - Utworzenie/konfiguracja zasobu transmisji dla ceremonii.
-- Pozyskanie adresu odtwarzania (playback URL) dla uczestnik�w.
-- Odczyt statusu transmisji (np. przygotowana/trwa/zako?czona/b??d).
-- Kontrola dost?pu: weryfikacja tokenu/linku przed udost?pnieniem odtwarzania.
+- Pozyskanie adresu odtwarzania (playback URL) dla uczestników.
+- Odczyt statusu transmisji (np. przygotowana/trwa/zakończona/błąd).
+- Kontrola dostępu: weryfikacja tokenu/linku przed udostępnieniem odtwarzania.
 
-Minimalne operacje (logiczne, niezale?ne od dostawcy):
+Minimalne operacje (logiczne, niezależne od dostawcy):
 - createStream(ceremony_id, start_time, metadata)
 - getStreamStatus(stream_id)
 - getPlaybackUrl(stream_id)
-- stopStream(stream_id) � je?li wspierane
+- stopStream(stream_id) — jeśli wspierane
 
-### Integracja: Generowanie dokument�w / podpis (opcjonalne, zale?ne od wymaga? pre-need)
-Cel: tworzenie dokument�w podsumowuj?cych plan pre-need oraz ewentualna akceptacja formalna.
+### Integracja: Generowanie dokumentów / podpis (opcjonalne, zależne od wymagań pre-need)
+Cel: tworzenie dokumentów podsumowujących plan pre-need oraz ewentualna akceptacja formalna.
 
-Zakres (je?li wprowadzamy):
+Zakres (jeśli wprowadzamy):
 - generowanie PDF podsumowania planu,
 - archiwizacja dokumentu,
 - ewentualnie: podpis elektroniczny / potwierdzenie akceptacji.
 
-### Wymagania bezpiecze?stwa na styku integracji (wysoki poziom)
-- Wszystkie integracje musz? korzysta? z szyfrowania w tranzycie (HTTPS/TLS).
-- Token/link transmisji nie mo?e ujawnia? danych wra?liwych i musi by? weryfikowany po stronie serwera przed udost?pnieniem tre?ci.
-- Webhooki (np. od p?atno?ci) musz? by? weryfikowane (np. podpis/sekret wsp�?dzielony) i odporne na ponowne wys?anie (idempotencja).
+### Wymagania bezpieczeństwa na styku integracji (wysoki poziom)
+- Wszystkie integracje muszą korzystać z szyfrowania w tranzycie (HTTPS/TLS).
+- Token/link transmisji nie może ujawniać danych wrażliwych i musi być weryfikowany po stronie serwera przed udostępnieniem treści.
+- Webhooki (np. od płatności) muszą być weryfikowane (np. podpis/sekret współdzielony) i odporne na ponowne wysłanie (idempotencja).
 
 # 4. Wymagania funkcjonalne (WF)
 
-Ten rozdzia? opisuje wymagania funkcjonalne systemu informatycznego dla zak?adu pogrzebowego oferuj?cego us?ugi typu pre-need, sprzeda? i projektowanie nagrobk�w online oraz transmisje ceremonii pogrzebowych. Wymagania s? zapisane z perspektywy u?ytkownika (User Stories) oraz zawieraj? testowalne kryteria akceptacji w formacie Given�When�Then (GWT).
+Ten rozdział opisuje wymagania funkcjonalne systemu informatycznego dla zakładu pogrzebowego oferującego usługi typu pre-need, sprzedaż i projektowanie nagrobków online oraz transmisje ceremonii pogrzebowych. Wymagania są zapisane z perspektywy użytkownika (User Stories) oraz zawierają testowalne kryteria akceptacji w formacie Given–When–Then (GWT).
 
-Wymagania pogrupowano wed?ug domen:
-- PN � pre-need
-- NG � nagrobki online (sprzeda? + projekt)
-- TR � transmisje ceremonii
-- COM � funkcje wsp�lne
+Wymagania pogrupowano według domen:
+- PN — pre-need
+- NG — nagrobki online (sprzedaż + projekt)
+- TR — transmisje ceremonii
+- COM — funkcje wspólne
 
 ---
 
 ## 4.0 Konwencje
 - Identyfikatory: `WF-[DOMENA]-[NNN]-[SCENARIUSZ]` (np. `WF-NG-002-01`).
-- Ka?de WF zawiera: opis, user story, cel biznesowy, warunki wst?pne/ko?cowe oraz kryteria akceptacji GWT (scenariusz g?�wny + alternatywny + wyj?tkowy).
-- Statusy (propozycja, mo?na dopasowa?):
-  - Pre-need: `Draft`, `Zaakceptowany`, `Op?acony` (je?li p?atno?ci w zakresie), `Zarchiwizowany`.
-  - Zam�wienie nagrobka: `Szkic`, `Zam�wione`, `Oczekuje na akceptacj?`, `Zaakceptowane`, `W realizacji`, `Zako?czone`, `Anulowane`.
-  - Transmisja: `Zaplanowana`, `Gotowa`, `LIVE`, `Zako?czona`, `B??d`.
+- Każde WF zawiera: opis, user story, cel biznesowy, warunki wstępne/końcowe oraz kryteria akceptacji GWT (scenariusz główny + alternatywny + wyjątkowy).
+- Statusy (propozycja, można dopasować):
+  - Pre-need: `Draft`, `Zaakceptowany`, `Opłacony` (jeśli płatności w zakresie), `Zarchiwizowany`.
+  - Zamówienie nagrobka: `Szkic`, `Zamówione`, `Oczekuje na akceptację`, `Zaakceptowane`, `W realizacji`, `Zakończone`, `Anulowane`.
+  - Transmisja: `Zaplanowana`, `Gotowa`, `LIVE`, `Zakończona`, `Błąd`.
 
 ---
 
 ## 4.1 Pre-need (PN)
 
 ### 4.1.1 WF-PN-001: Utworzenie planu pre-need (Draft)
-**Opis:** Umo?liwia klientowi utworzenie planu us?ug pogrzebowych z wyprzedzeniem i zapisanie go jako szkic.  
-**User Story:** Jako klient pre-need chc? utworzy? plan pre-need, abym m�g? zapisa? moje preferencje i wr�ci? do nich p�?niej.  
-**Cel biznesowy:** Zwi?kszenie liczby klient�w pre-need i ograniczenie niejasno?ci na etapie realizacji us?ug.  
-**Warunki wst?pne:** U?ytkownik jest w module pre-need (konto lub tryb go?cia � decyzja produktowa).  
-**Warunki ko?cowe:** Plan w statusie `Draft` jest zapisany i ma identyfikator.
+**Opis:** Umożliwia klientowi utworzenie planu usług pogrzebowych z wyprzedzeniem i zapisanie go jako szkic.  
+**User Story:** Jako klient pre-need chcę utworzyć plan pre-need, abym mógł zapisać moje preferencje i wrócić do nich później.  
+**Cel biznesowy:** Zwiększenie liczby klientów pre-need i ograniczenie niejasności na etapie realizacji usług.  
+**Warunki wstępne:** Użytkownik jest w module pre-need (konto lub tryb gościa — decyzja produktowa).  
+**Warunki końcowe:** Plan w statusie `Draft` jest zapisany i ma identyfikator.
 
 **Kryteria akceptacji:**
-- **WF-PN-001-01: Utworzenie planu (Scenariusz g?�wny)**
-  - Given: U?ytkownik znajduje si? w module pre-need.
-  - And: System wy?wietla formularz utworzenia planu z polami wymaganymi.
-  - When: U?ytkownik uzupe?nia wymagane pola i wybiera �Zapisz�.
+- **WF-PN-001-01: Utworzenie planu (Scenariusz główny)**
+  - Given: Użytkownik znajduje się w module pre-need.
+  - And: System wyświetla formularz utworzenia planu z polami wymaganymi.
+  - When: Użytkownik uzupełnia wymagane pola i wybiera „Zapisz”.
   - Then: System zapisuje plan jako `Draft`.
-  - And: System wy?wietla podsumowanie planu oraz mo?liwo?? dalszej edycji.
-- **WF-PN-001-02: Pr�ba zapisu bez danych (Scenariusz alternatywny)**
-  - Given: U?ytkownik edytuje formularz planu.
-  - When: U?ytkownik wybiera �Zapisz� bez uzupe?nienia p�l wymaganych.
-  - Then: System wskazuje brakuj?ce pola i nie zapisuje planu.
-- **WF-PN-001-03: B??d zapisu (Scenariusz wyj?tkowy)**
-  - Given: U?ytkownik ma uzupe?nione wymagane dane planu.
-  - When: Wyst?pi b??d po stronie systemu podczas zapisu.
-  - Then: System wy?wietla komunikat b??du oraz umo?liwia ponowienie operacji bez utraty wprowadzonych danych.
+  - And: System wyświetla podsumowanie planu oraz możliwość dalszej edycji.
+- **WF-PN-001-02: Próba zapisu bez danych (Scenariusz alternatywny)**
+  - Given: Użytkownik edytuje formularz planu.
+  - When: Użytkownik wybiera „Zapisz” bez uzupełnienia pól wymaganych.
+  - Then: System wskazuje brakujące pola i nie zapisuje planu.
+- **WF-PN-001-03: Błąd zapisu (Scenariusz wyjątkowy)**
+  - Given: Użytkownik ma uzupełnione wymagane dane planu.
+  - When: Wystąpi błąd po stronie systemu podczas zapisu.
+  - Then: System wyświetla komunikat błędu oraz umożliwia ponowienie operacji bez utraty wprowadzonych danych.
 
 ---
 
 ### 4.1.2 WF-PN-002: Edycja planu i zapis zmian
-**Opis:** Umo?liwia edycj? us?ug, preferencji i danych w planie pre-need.  
-**User Story:** Jako klient pre-need chc? edytowa? plan, aby dopasowa? us?ugi i koszty do mojej sytuacji.  
-**Cel biznesowy:** Zmniejszenie rezygnacji dzi?ki mo?liwo?ci korekt oraz poprawa jako?ci danych.  
-**Warunki wst?pne:** Istnieje plan w statusie `Draft` przypisany do u?ytkownika.  
-**Warunki ko?cowe:** Zmieniony plan jest zapisany i widoczny w podsumowaniu.
+**Opis:** Umożliwia edycję usług, preferencji i danych w planie pre-need.  
+**User Story:** Jako klient pre-need chcę edytować plan, aby dopasować usługi i koszty do mojej sytuacji.  
+**Cel biznesowy:** Zmniejszenie rezygnacji dzięki możliwości korekt oraz poprawa jakości danych.  
+**Warunki wstępne:** Istnieje plan w statusie `Draft` przypisany do użytkownika.  
+**Warunki końcowe:** Zmieniony plan jest zapisany i widoczny w podsumowaniu.
 
 **Kryteria akceptacji:**
-- **WF-PN-002-01: Zapis edycji (Scenariusz g?�wny)**
-  - Given: U?ytkownik ma otwarty plan w statusie `Draft`.
-  - When: U?ytkownik zmienia elementy planu i wybiera �Zapisz zmiany�.
-  - Then: System zapisuje zmiany i wy?wietla aktualne podsumowanie koszt�w.
+- **WF-PN-002-01: Zapis edycji (Scenariusz główny)**
+  - Given: Użytkownik ma otwarty plan w statusie `Draft`.
+  - When: Użytkownik zmienia elementy planu i wybiera „Zapisz zmiany”.
+  - Then: System zapisuje zmiany i wyświetla aktualne podsumowanie kosztów.
 - **WF-PN-002-02: Anulowanie edycji (Scenariusz alternatywny)**
-  - Given: U?ytkownik wprowadzi? zmiany w planie.
-  - When: U?ytkownik wybiera �Anuluj�.
-  - Then: System nie zapisuje zmian i przywraca ostatnio zapisan? wersj? planu.
-- **WF-PN-002-03: Konflikt edycji (Scenariusz wyj?tkowy)**
-  - Given: Plan zosta? zmieniony przez inny proces (np. pracownik) po otwarciu go przez klienta.
-  - When: U?ytkownik pr�buje zapisa? swoj? wersj?.
+  - Given: Użytkownik wprowadził zmiany w planie.
+  - When: Użytkownik wybiera „Anuluj”.
+  - Then: System nie zapisuje zmian i przywraca ostatnio zapisaną wersję planu.
+- **WF-PN-002-03: Konflikt edycji (Scenariusz wyjątkowy)**
+  - Given: Plan został zmieniony przez inny proces (np. pracownik) po otwarciu go przez klienta.
+  - When: Użytkownik próbuje zapisać swoją wersję.
   - Then: System informuje o konflikcie i wymaga ponownego wczytania planu przed zapisem.
 
 ---
 
 ### 4.1.3 WF-PN-003: Akceptacja planu pre-need
-**Opis:** Umo?liwia przej?cie planu z Draft do Zaakceptowany (formalny wyb�r us?ug).  
-**User Story:** Jako klient pre-need chc? zaakceptowa? plan, aby zak?ad pogrzebowy m�g? go zrealizowa? zgodnie z moimi ustaleniami.  
-**Cel biznesowy:** Zamkni?cie procesu decyzyjnego i umo?liwienie realizacji/rozlicze?.  
-**Warunki wst?pne:** Plan jest kompletny i w statusie `Draft`.  
-**Warunki ko?cowe:** Plan ma status `Zaakceptowany`, a system rejestruje dat? akceptacji.
+**Opis:** Umożliwia przejście planu z Draft do Zaakceptowany (formalny wybór usług).  
+**User Story:** Jako klient pre-need chcę zaakceptować plan, aby zakład pogrzebowy mógł go zrealizować zgodnie z moimi ustaleniami.  
+**Cel biznesowy:** Zamknięcie procesu decyzyjnego i umożliwienie realizacji/rozliczeń.  
+**Warunki wstępne:** Plan jest kompletny i w statusie `Draft`.  
+**Warunki końcowe:** Plan ma status `Zaakceptowany`, a system rejestruje datę akceptacji.
 
 **Kryteria akceptacji:**
-- **WF-PN-003-01: Akceptacja kompletnego planu (Scenariusz g?�wny)**
-  - Given: U?ytkownik ogl?da podsumowanie kompletnego planu `Draft`.
-  - When: U?ytkownik wybiera �Akceptuj plan� i potwierdza operacj?.
+- **WF-PN-003-01: Akceptacja kompletnego planu (Scenariusz główny)**
+  - Given: Użytkownik ogląda podsumowanie kompletnego planu `Draft`.
+  - When: Użytkownik wybiera „Akceptuj plan” i potwierdza operację.
   - Then: System ustawia status planu na `Zaakceptowany`.
-  - And: System zapisuje dat? i identyfikator u?ytkownika, kt�ry zaakceptowa? plan.
-- **WF-PN-003-02: Pr�ba akceptacji niekompletnego planu (Scenariusz alternatywny)**
-  - Given: Plan w statusie `Draft` ma brakuj?ce wymagane dane.
-  - When: U?ytkownik wybiera �Akceptuj plan�.
-  - Then: System blokuje akceptacj? i wskazuje brakuj?ce elementy.
-- **WF-PN-003-03: B??d procesu akceptacji (Scenariusz wyj?tkowy)**
+  - And: System zapisuje datę i identyfikator użytkownika, który zaakceptował plan.
+- **WF-PN-003-02: Próba akceptacji niekompletnego planu (Scenariusz alternatywny)**
+  - Given: Plan w statusie `Draft` ma brakujące wymagane dane.
+  - When: Użytkownik wybiera „Akceptuj plan”.
+  - Then: System blokuje akceptację i wskazuje brakujące elementy.
+- **WF-PN-003-03: Błąd procesu akceptacji (Scenariusz wyjątkowy)**
   - Given: Plan jest kompletny.
-  - When: Wyst?pi b??d systemu w trakcie akceptacji.
-  - Then: System nie zmienia statusu i wy?wietla komunikat umo?liwiaj?cy ponowienie akceptacji.
+  - When: Wystąpi błąd systemu w trakcie akceptacji.
+  - Then: System nie zmienia statusu i wyświetla komunikat umożliwiający ponowienie akceptacji.
 
 ---
 
 ## 4.2 Nagrobki online (NG)
 
-### 4.2.1 WF-NG-001: Przegl?d katalogu i filtrowanie
-**Opis:** Umo?liwia klientowi przegl?d katalogu nagrobk�w i akcesori�w oraz filtrowanie wynik�w.  
-**User Story:** Jako klient chc? filtrowa? katalog nagrobk�w, abym m�g? szybko znale?? odpowiedni produkt.  
-**Cel biznesowy:** Zwi?kszenie konwersji poprzez szybsze znalezienie produktu.  
-**Warunki wst?pne:** Katalog zawiera produkty aktywne.  
-**Warunki ko?cowe:** U?ytkownik widzi list? produkt�w zgodn? z kryteriami.
+### 4.2.1 WF-NG-001: Przegląd katalogu i filtrowanie
+**Opis:** Umożliwia klientowi przegląd katalogu nagrobków i akcesoriów oraz filtrowanie wyników.  
+**User Story:** Jako klient chcę filtrować katalog nagrobków, abym mógł szybko znaleźć odpowiedni produkt.  
+**Cel biznesowy:** Zwiększenie konwersji poprzez szybsze znalezienie produktu.  
+**Warunki wstępne:** Katalog zawiera produkty aktywne.  
+**Warunki końcowe:** Użytkownik widzi listę produktów zgodną z kryteriami.
 
 **Kryteria akceptacji:**
-- **WF-NG-001-01: Filtrowanie wynik�w (Scenariusz g?�wny)**
-  - Given: U?ytkownik jest na stronie katalogu.
-  - When: U?ytkownik ustawia filtry (np. materia?/cena/styl).
-  - Then: System aktualizuje list? produkt�w zgodnie z filtrami.
-- **WF-NG-001-02: Brak wynik�w (Scenariusz alternatywny)**
-  - Given: U?ytkownik ustawi? filtry.
-  - When: ?aden produkt nie spe?nia kryteri�w.
-  - Then: System pokazuje komunikat �Brak wynik�w� i umo?liwia reset filtr�w.
-- **WF-NG-001-03: B??d ?adowania katalogu (Scenariusz wyj?tkowy)**
-  - Given: U?ytkownik wchodzi do katalogu.
-  - When: Wyst?pi b??d po stronie serwera.
-  - Then: System wy?wietla b??d i umo?liwia ponowienie pr�by.
+- **WF-NG-001-01: Filtrowanie wyników (Scenariusz główny)**
+  - Given: Użytkownik jest na stronie katalogu.
+  - When: Użytkownik ustawia filtry (np. materiał/cena/styl).
+  - Then: System aktualizuje listę produktów zgodnie z filtrami.
+- **WF-NG-001-02: Brak wyników (Scenariusz alternatywny)**
+  - Given: Użytkownik ustawił filtry.
+  - When: Żaden produkt nie spełnia kryteriów.
+  - Then: System pokazuje komunikat „Brak wyników” i umożliwia reset filtrów.
+- **WF-NG-001-03: Błąd ładowania katalogu (Scenariusz wyjątkowy)**
+  - Given: Użytkownik wchodzi do katalogu.
+  - When: Wystąpi błąd po stronie serwera.
+  - Then: System wyświetla błąd i umożliwia ponowienie próby.
 
 ---
 
 ### 4.2.2 WF-NG-002: Konfigurator i zapis projektu nagrobka
-**Opis:** Umo?liwia konfiguracj? wariant�w nagrobka (opcje, napis, dodatki) oraz zapis projektu.  
-**User Story:** Jako klient chc? skonfigurowa? nagrobek i zapisa? projekt, aby m�c przej?? do wyceny i zam�wienia.  
-**Cel biznesowy:** Umo?liwienie personalizacji i sprzeda?y online.  
-**Warunki wst?pne:** U?ytkownik otworzy? kart? produktu w konfiguratorze.  
-**Warunki ko?cowe:** Projekt jest zapisany i ma identyfikator projektu.
+**Opis:** Umożliwia konfigurację wariantów nagrobka (opcje, napis, dodatki) oraz zapis projektu.  
+**User Story:** Jako klient chcę skonfigurować nagrobek i zapisać projekt, aby móc przejść do wyceny i zamówienia.  
+**Cel biznesowy:** Umożliwienie personalizacji i sprzedaży online.  
+**Warunki wstępne:** Użytkownik otworzył kartę produktu w konfiguratorze.  
+**Warunki końcowe:** Projekt jest zapisany i ma identyfikator projektu.
 
 **Kryteria akceptacji:**
-- **WF-NG-002-01: Zapis projektu (Scenariusz g?�wny)**
-  - Given: U?ytkownik jest w konfiguratorze.
-  - And: U?ytkownik wybra? warianty i uzupe?ni? wymagane pola (np. napis).
-  - When: U?ytkownik wybiera �Zapisz projekt�.
-  - Then: System zapisuje projekt i wy?wietla podsumowanie projektu wraz z cen? (lub cen? �od�).
+- **WF-NG-002-01: Zapis projektu (Scenariusz główny)**
+  - Given: Użytkownik jest w konfiguratorze.
+  - And: Użytkownik wybrał warianty i uzupełnił wymagane pola (np. napis).
+  - When: Użytkownik wybiera „Zapisz projekt”.
+  - Then: System zapisuje projekt i wyświetla podsumowanie projektu wraz z ceną (lub ceną „od”).
 - **WF-NG-002-02: Walidacja tekstu napisu (Scenariusz alternatywny)**
-  - Given: U?ytkownik wpisuje napis na nagrobku.
-  - When: Napis przekracza limit d?ugo?ci lub zawiera niedozwolone znaki.
-  - Then: System wy?wietla b??d walidacji i blokuje zapis projektu.
-- **WF-NG-002-03: Niedost?pna opcja (Scenariusz wyj?tkowy)**
-  - Given: U?ytkownik ma otwarty konfigurator.
-  - When: Wybrana opcja sta?a si? niedost?pna (np. wycofana).
+  - Given: Użytkownik wpisuje napis na nagrobku.
+  - When: Napis przekracza limit długości lub zawiera niedozwolone znaki.
+  - Then: System wyświetla błąd walidacji i blokuje zapis projektu.
+- **WF-NG-002-03: Niedostępna opcja (Scenariusz wyjątkowy)**
+  - Given: Użytkownik ma otwarty konfigurator.
+  - When: Wybrana opcja stała się niedostępna (np. wycofana).
   - Then: System informuje o problemie i wymaga wyboru alternatywy przed zapisem.
 
 ---
 
-### 4.2.3 WF-NG-003: Wycena, koszyk i z?o?enie zam�wienia
-**Opis:** Umo?liwia utworzenie zam�wienia na podstawie projektu i przej?cie przez checkout.  
-**User Story:** Jako klient chc? z?o?y? zam�wienie na skonfigurowany nagrobek, aby go kupi? online.  
-**Cel biznesowy:** Monetyzacja kana?u online i skr�cenie ?cie?ki zakupowej.  
-**Warunki wst?pne:** Istnieje zapisany projekt.  
-**Warunki ko?cowe:** Zam�wienie zostaje utworzone i ma status `Zam�wione` lub `Oczekuje na p?atno??` (zale?nie od modelu p?atno?ci).
+### 4.2.3 WF-NG-003: Wycena, koszyk i złożenie zamówienia
+**Opis:** Umożliwia utworzenie zamówienia na podstawie projektu i przejście przez checkout.  
+**User Story:** Jako klient chcę złożyć zamówienie na skonfigurowany nagrobek, aby go kupić online.  
+**Cel biznesowy:** Monetyzacja kanału online i skrócenie ścieżki zakupowej.  
+**Warunki wstępne:** Istnieje zapisany projekt.  
+**Warunki końcowe:** Zamówienie zostaje utworzone i ma status `Zamówione` lub `Oczekuje na płatność` (zależnie od modelu płatności).
 
 **Kryteria akceptacji:**
-- **WF-NG-003-01: Utworzenie zam�wienia (Scenariusz g?�wny)**
-  - Given: U?ytkownik jest w podsumowaniu projektu.
-  - When: U?ytkownik dodaje projekt do koszyka i przechodzi do checkout.
-  - Then: System pozwala uzupe?ni? dane zam�wienia i potwierdzi? z?o?enie zam�wienia.
-- **WF-NG-003-02: Nieudana p?atno?? (Scenariusz alternatywny)**
-  - Given: U?ytkownik jest w kroku p?atno?ci.
-  - When: P?atno?? zostaje odrzucona.
-  - Then: System nie oznacza zam�wienia jako op?acone i informuje u?ytkownika o mo?liwo?ci ponowienia.
-- **WF-NG-003-03: Brak danych wymaganych (Scenariusz wyj?tkowy)**
-  - Given: U?ytkownik jest w checkout.
-  - When: U?ytkownik pr�buje potwierdzi? zam�wienie bez danych wymaganych.
-  - Then: System blokuje z?o?enie zam�wienia i wskazuje brakuj?ce pola.
+- **WF-NG-003-01: Utworzenie zamówienia (Scenariusz główny)**
+  - Given: Użytkownik jest w podsumowaniu projektu.
+  - When: Użytkownik dodaje projekt do koszyka i przechodzi do checkout.
+  - Then: System pozwala uzupełnić dane zamówienia i potwierdzić złożenie zamówienia.
+- **WF-NG-003-02: Nieudana płatność (Scenariusz alternatywny)**
+  - Given: Użytkownik jest w kroku płatności.
+  - When: Płatność zostaje odrzucona.
+  - Then: System nie oznacza zamówienia jako opłacone i informuje użytkownika o możliwości ponowienia.
+- **WF-NG-003-03: Brak danych wymaganych (Scenariusz wyjątkowy)**
+  - Given: Użytkownik jest w checkout.
+  - When: Użytkownik próbuje potwierdzić zamówienie bez danych wymaganych.
+  - Then: System blokuje złożenie zamówienia i wskazuje brakujące pola.
 
 ---
 
 ### 4.2.4 WF-NG-004: Akceptacja projektu i wersjonowanie
-**Opis:** Umo?liwia przes?anie projektu do akceptacji oraz akceptacj?/odrzucenie przez klienta.  
-**User Story:** Jako klient chc? zaakceptowa? lub poprosi? o poprawki do projektu, aby finalny projekt by? zgodny z oczekiwaniami.  
-**Cel biznesowy:** Redukcja b??d�w i spor�w, formalizacja �zgody� klienta na realizacj?.  
-**Warunki wst?pne:** Projekt zosta? oznaczony jako �do akceptacji� przez pracownika/proces.  
-**Warunki ko?cowe:** System rejestruje decyzj? klienta i ustawia odpowiedni status.
+**Opis:** Umożliwia przesłanie projektu do akceptacji oraz akceptację/odrzucenie przez klienta.  
+**User Story:** Jako klient chcę zaakceptować lub poprosić o poprawki do projektu, aby finalny projekt był zgodny z oczekiwaniami.  
+**Cel biznesowy:** Redukcja błędów i sporów, formalizacja „zgody” klienta na realizację.  
+**Warunki wstępne:** Projekt został oznaczony jako „do akceptacji” przez pracownika/proces.  
+**Warunki końcowe:** System rejestruje decyzję klienta i ustawia odpowiedni status.
 
 **Kryteria akceptacji:**
-- **WF-NG-004-01: Akceptacja projektu (Scenariusz g?�wny)**
-  - Given: Klient widzi najnowsz? wersj? projektu do akceptacji.
-  - When: Klient wybiera �Akceptuj�.
-  - Then: System ustawia status na `Zaakceptowane` i rejestruje dat? akceptacji.
-- **WF-NG-004-02: Pro?ba o poprawki (Scenariusz alternatywny)**
+- **WF-NG-004-01: Akceptacja projektu (Scenariusz główny)**
+  - Given: Klient widzi najnowszą wersję projektu do akceptacji.
+  - When: Klient wybiera „Akceptuj”.
+  - Then: System ustawia status na `Zaakceptowane` i rejestruje datę akceptacji.
+- **WF-NG-004-02: Prośba o poprawki (Scenariusz alternatywny)**
   - Given: Klient widzi projekt do akceptacji.
-  - When: Klient wybiera �Popro? o poprawki� i dodaje komentarz.
+  - When: Klient wybiera „Poproś o poprawki” i dodaje komentarz.
   - Then: System zapisuje komentarz i ustawia status `Wymaga poprawek`.
-- **WF-NG-004-03: Akceptacja nieaktualnej wersji (Scenariusz wyj?tkowy)**
-  - Given: Istnieje nowsza wersja projektu ni? ta wy?wietlana klientowi.
-  - When: Klient pr�buje zaakceptowa? starsz? wersj?.
-  - Then: System blokuje operacj? i wymaga zapoznania si? z najnowsz? wersj?.
+- **WF-NG-004-03: Akceptacja nieaktualnej wersji (Scenariusz wyjątkowy)**
+  - Given: Istnieje nowsza wersja projektu niż ta wyświetlana klientowi.
+  - When: Klient próbuje zaakceptować starszą wersję.
+  - Then: System blokuje operację i wymaga zapoznania się z najnowszą wersją.
 
 ---
 
 ## 4.3 Transmisje ceremonii (TR)
 
-### 4.3.1 WF-TR-001: Zam�wienie transmisji ceremonii
-**Opis:** Umo?liwia zam�wienie transmisji dla wskazanej ceremonii.  
-**User Story:** Jako organizator/rodzina chc? zam�wi? transmisj? ceremonii, aby umo?liwi? zdalny udzia? bliskim.  
-**Cel biznesowy:** Zwi?kszenie warto?ci oferty zak?adu i satysfakcji klient�w.  
-**Warunki wst?pne:** Istnieje ceremonia w harmonogramie lub mo?liwe jest jej utworzenie w systemie.  
-**Warunki ko?cowe:** Transmisja ma status `Zaplanowana` i jest powi?zana z ceremoni?.
+### 4.3.1 WF-TR-001: Zamówienie transmisji ceremonii
+**Opis:** Umożliwia zamówienie transmisji dla wskazanej ceremonii.  
+**User Story:** Jako organizator/rodzina chcę zamówić transmisję ceremonii, aby umożliwić zdalny udział bliskim.  
+**Cel biznesowy:** Zwiększenie wartości oferty zakładu i satysfakcji klientów.  
+**Warunki wstępne:** Istnieje ceremonia w harmonogramie lub możliwe jest jej utworzenie w systemie.  
+**Warunki końcowe:** Transmisja ma status `Zaplanowana` i jest powiązana z ceremonią.
 
 **Kryteria akceptacji:**
-- **WF-TR-001-01: Utworzenie zam�wienia transmisji (Scenariusz g?�wny)**
-  - Given: Organizator jest na szczeg�?ach ceremonii.
-  - When: Wybiera �Zam�w transmisj?� i potwierdza.
-  - Then: System tworzy pozycj? transmisji powi?zan? z ceremoni?.
+- **WF-TR-001-01: Utworzenie zamówienia transmisji (Scenariusz główny)**
+  - Given: Organizator jest na szczegółach ceremonii.
+  - When: Wybiera „Zamów transmisję” i potwierdza.
+  - Then: System tworzy pozycję transmisji powiązaną z ceremonią.
 - **WF-TR-001-02: Brak danych ceremonii (Scenariusz alternatywny)**
   - Given: Ceremonia nie ma ustawionej daty/godziny.
-  - When: Organizator pr�buje zam�wi? transmisj?.
-  - Then: System blokuje operacj? i wymaga uzupe?nienia danych.
-- **WF-TR-001-03: Brak dost?pno?ci terminu (Scenariusz wyj?tkowy)**
+  - When: Organizator próbuje zamówić transmisję.
+  - Then: System blokuje operację i wymaga uzupełnienia danych.
+- **WF-TR-001-03: Brak dostępności terminu (Scenariusz wyjątkowy)**
   - Given: Termin koliduje z ograniczeniami operacyjnymi.
-  - When: Organizator zamawia transmisj?.
-  - Then: System informuje o braku mo?liwo?ci realizacji w tym terminie i proponuje kontakt/alternatyw?.
+  - When: Organizator zamawia transmisję.
+  - Then: System informuje o braku możliwości realizacji w tym terminie i proponuje kontakt/alternatywę.
 
 ---
 
-### 4.3.2 WF-TR-002: Generowanie linku/tokena dost?pu
-**Opis:** Umo?liwia wygenerowanie prywatnego linku/tokena do transmisji.  
-**User Story:** Jako organizator chc? wygenerowa? prywatny link do transmisji, aby udost?pni? go tylko zaproszonym osobom.  
-**Cel biznesowy:** Prywatno?? i kontrola dost?pu.  
-**Warunki wst?pne:** Transmisja jest `Zaplanowana` lub `Gotowa`.  
-**Warunki ko?cowe:** System generuje aktywny token/link przypisany do transmisji.
+### 4.3.2 WF-TR-002: Generowanie linku/tokena dostępu
+**Opis:** Umożliwia wygenerowanie prywatnego linku/tokena do transmisji.  
+**User Story:** Jako organizator chcę wygenerować prywatny link do transmisji, aby udostępnić go tylko zaproszonym osobom.  
+**Cel biznesowy:** Prywatność i kontrola dostępu.  
+**Warunki wstępne:** Transmisja jest `Zaplanowana` lub `Gotowa`.  
+**Warunki końcowe:** System generuje aktywny token/link przypisany do transmisji.
 
 **Kryteria akceptacji:**
-- **WF-TR-002-01: Wygenerowanie linku (Scenariusz g?�wny)**
+- **WF-TR-002-01: Wygenerowanie linku (Scenariusz główny)**
   - Given: Organizator jest w panelu ceremonii/transmisji.
-  - When: Wybiera �Generuj link�.
-  - Then: System generuje link/token i wy?wietla go do skopiowania.
+  - When: Wybiera „Generuj link”.
+  - Then: System generuje link/token i wyświetla go do skopiowania.
 - **WF-TR-002-02: Regeneracja linku (Scenariusz alternatywny)**
-  - Given: Link zosta? wcze?niej wygenerowany.
-  - When: Organizator wybiera �Wygeneruj nowy link�.
-  - Then: System uniewa?nia poprzedni link i generuje nowy.
-- **WF-TR-002-03: Brak uprawnie? (Scenariusz wyj?tkowy)**
-  - Given: U?ytkownik nie jest organizatorem ani pracownikiem uprawnionym.
-  - When: Pr�buje wygenerowa? link.
-  - Then: System blokuje operacj? i nie ujawnia linku.
+  - Given: Link został wcześniej wygenerowany.
+  - When: Organizator wybiera „Wygeneruj nowy link”.
+  - Then: System unieważnia poprzedni link i generuje nowy.
+- **WF-TR-002-03: Brak uprawnień (Scenariusz wyjątkowy)**
+  - Given: Użytkownik nie jest organizatorem ani pracownikiem uprawnionym.
+  - When: Próbuje wygenerować link.
+  - Then: System blokuje operację i nie ujawnia linku.
 
 ---
 
-### 4.3.3 WF-TR-003: Do??czenie do transmisji przez link (bez konta)
-**Opis:** Umo?liwia zdalnemu uczestnikowi do??czenie do transmisji jednym klikni?ciem.  
-**User Story:** Jako zdalny uczestnik chc? do??czy? do transmisji przez link bez rejestracji, aby szybko uzyska? dost?p.  
-**Cel biznesowy:** Minimalizacja tarcia i wsparcie os�b mniej technicznych.  
-**Warunki wst?pne:** Uczestnik posiada link/token.  
-**Warunki ko?cowe:** Uczestnik widzi odtwarzacz transmisji lub komunikat stanu.
+### 4.3.3 WF-TR-003: Dołączenie do transmisji przez link (bez konta)
+**Opis:** Umożliwia zdalnemu uczestnikowi dołączenie do transmisji jednym kliknięciem.  
+**User Story:** Jako zdalny uczestnik chcę dołączyć do transmisji przez link bez rejestracji, aby szybko uzyskać dostęp.  
+**Cel biznesowy:** Minimalizacja tarcia i wsparcie osób mniej technicznych.  
+**Warunki wstępne:** Uczestnik posiada link/token.  
+**Warunki końcowe:** Uczestnik widzi odtwarzacz transmisji lub komunikat stanu.
 
 **Kryteria akceptacji:**
-- **WF-TR-003-01: Poprawny link (Scenariusz g?�wny)**
+- **WF-TR-003-01: Poprawny link (Scenariusz główny)**
   - Given: Uczestnik otwiera link z poprawnym tokenem.
   - When: System weryfikuje token.
-  - Then: System wy?wietla stron? transmisji z odtwarzaczem.
-- **WF-TR-003-02: Transmisja jeszcze nie rozpocz?ta (Scenariusz alternatywny)**
+  - Then: System wyświetla stronę transmisji z odtwarzaczem.
+- **WF-TR-003-02: Transmisja jeszcze nie rozpoczęta (Scenariusz alternatywny)**
   - Given: Token jest poprawny.
   - When: Transmisja ma status `Zaplanowana`/`Gotowa`.
-  - Then: System wy?wietla komunikat �Transmisja jeszcze si? nie rozpocz??a� oraz (opcjonalnie) godzin? startu.
-- **WF-TR-003-03: Token niewa?ny (Scenariusz wyj?tkowy)**
-  - Given: Uczestnik otwiera link z niewa?nym lub wygas?ym tokenem.
+  - Then: System wyświetla komunikat „Transmisja jeszcze się nie rozpoczęła” oraz (opcjonalnie) godzinę startu.
+- **WF-TR-003-03: Token nieważny (Scenariusz wyjątkowy)**
+  - Given: Uczestnik otwiera link z nieważnym lub wygasłym tokenem.
   - When: System weryfikuje token.
-  - Then: System odmawia dost?pu i wy?wietla komunikat o braku autoryzacji.
+  - Then: System odmawia dostępu i wyświetla komunikat o braku autoryzacji.
 
 ---
 
-### 4.3.4 WF-TR-004: Panel operatora � powi?zanie z harmonogramem + test A/V
-**Opis:** Umo?liwia operatorowi przygotowanie transmisji i wykonanie testu audio-wideo.  
-**User Story:** Jako operator chc? wykona? test A/V i uruchomi? transmisj? dla wybranej ceremonii, aby zapewni? jako?? transmisji.  
-**Cel biznesowy:** Redukcja incydent�w technicznych i poprawa jako?ci us?ugi.  
-**Warunki wst?pne:** Operator ma uprawnienia, transmisja istnieje i jest powi?zana z ceremoni? (lub mo?e zosta? powi?zana).  
-**Warunki ko?cowe:** Test A/V jest wykonany i zapisany jako wynik (OK/b??d) oraz widoczny status przygotowania.
+### 4.3.4 WF-TR-004: Panel operatora — powiązanie z harmonogramem + test A/V
+**Opis:** Umożliwia operatorowi przygotowanie transmisji i wykonanie testu audio-wideo.  
+**User Story:** Jako operator chcę wykonać test A/V i uruchomić transmisję dla wybranej ceremonii, aby zapewnić jakość transmisji.  
+**Cel biznesowy:** Redukcja incydentów technicznych i poprawa jakości usługi.  
+**Warunki wstępne:** Operator ma uprawnienia, transmisja istnieje i jest powiązana z ceremonią (lub może zostać powiązana).  
+**Warunki końcowe:** Test A/V jest wykonany i zapisany jako wynik (OK/błąd) oraz widoczny status przygotowania.
 
 **Kryteria akceptacji:**
-- **WF-TR-004-01: Wykonanie testu A/V (Scenariusz g?�wny)**
-  - Given: Operator wybra? ceremoni? w panelu operatora.
-  - When: Operator uruchamia �Test A/V�.
-  - Then: System pokazuje podgl?d obrazu i wska?nik poziomu d?wi?ku oraz wynik testu.
+- **WF-TR-004-01: Wykonanie testu A/V (Scenariusz główny)**
+  - Given: Operator wybrał ceremonię w panelu operatora.
+  - When: Operator uruchamia „Test A/V”.
+  - Then: System pokazuje podgląd obrazu i wskaźnik poziomu dźwięku oraz wynik testu.
 - **WF-TR-004-02: Ponowienie testu (Scenariusz alternatywny)**
-  - Given: Test A/V zako?czy? si? b??dem.
-  - When: Operator wybiera �Powt�rz test�.
-  - Then: System umo?liwia ponowienie testu bez resetowania ca?ej konfiguracji.
-- **WF-TR-004-03: Brak urz?dze? wej?ciowych (Scenariusz wyj?tkowy)**
+  - Given: Test A/V zakończył się błędem.
+  - When: Operator wybiera „Powtórz test”.
+  - Then: System umożliwia ponowienie testu bez resetowania całej konfiguracji.
+- **WF-TR-004-03: Brak urządzeń wejściowych (Scenariusz wyjątkowy)**
   - Given: Operator uruchamia test A/V.
   - When: System nie wykrywa kamery lub mikrofonu.
-  - Then: System wy?wietla jednoznaczny komunikat o braku urz?dzenia i blokuje start transmisji.
+  - Then: System wyświetla jednoznaczny komunikat o braku urządzenia i blokuje start transmisji.
 
 ---
 
-## 4.4 Funkcje wsp�lne (COM)
+## 4.4 Funkcje wspólne (COM)
 
 ### 4.4.1 WF-COM-001: Role i uprawnienia
-**Opis:** System rozr�?nia role i ogranicza dost?p do danych oraz operacji.  
-**User Story:** Jako administrator chc? zarz?dza? rolami i uprawnieniami, aby dane klient�w by?y dost?pne tylko dla uprawnionych os�b.  
-**Cel biznesowy:** Bezpiecze?stwo, zgodno?? i ograniczenie ryzyka b??d�w.  
-**Warunki wst?pne:** Administrator jest zalogowany.  
-**Warunki ko?cowe:** Uprawnienia s? zapisane i egzekwowane przez system.
+**Opis:** System rozróżnia role i ogranicza dostęp do danych oraz operacji.  
+**User Story:** Jako administrator chcę zarządzać rolami i uprawnieniami, aby dane klientów były dostępne tylko dla uprawnionych osób.  
+**Cel biznesowy:** Bezpieczeństwo, zgodność i ograniczenie ryzyka błędów.  
+**Warunki wstępne:** Administrator jest zalogowany.  
+**Warunki końcowe:** Uprawnienia są zapisane i egzekwowane przez system.
 
 **Kryteria akceptacji:**
-- **WF-COM-001-01: Nadanie roli (Scenariusz g?�wny)**
-  - Given: Administrator jest w panelu zarz?dzania u?ytkownikami.
-  - When: Administrator nadaje rol? (np. projektant/operator) u?ytkownikowi.
-  - Then: System zapisuje zmian? i od tego momentu u?ytkownik ma dost?p do w?a?ciwych ekran�w/operacji.
-- **WF-COM-001-02: Brak uprawnie? (Scenariusz alternatywny)**
-  - Given: U?ytkownik bez wymaganej roli pr�buje wykona? operacj? administracyjn?.
-  - When: U?ytkownik wykonuje akcj?.
-  - Then: System odmawia dost?pu.
-- **WF-COM-001-03: Pr�ba dost?pu do cudzych danych (Scenariusz wyj?tkowy)**
-  - Given: Klient nie jest w?a?cicielem zasobu (plan/zam�wienie).
-  - When: Pr�buje otworzy? URL zasobu.
-  - Then: System zwraca odmow? dost?pu i nie ujawnia danych.
+- **WF-COM-001-01: Nadanie roli (Scenariusz główny)**
+  - Given: Administrator jest w panelu zarządzania użytkownikami.
+  - When: Administrator nadaje rolę (np. projektant/operator) użytkownikowi.
+  - Then: System zapisuje zmianę i od tego momentu użytkownik ma dostęp do właściwych ekranów/operacji.
+- **WF-COM-001-02: Brak uprawnień (Scenariusz alternatywny)**
+  - Given: Użytkownik bez wymaganej roli próbuje wykonać operację administracyjną.
+  - When: Użytkownik wykonuje akcję.
+  - Then: System odmawia dostępu.
+- **WF-COM-001-03: Próba dostępu do cudzych danych (Scenariusz wyjątkowy)**
+  - Given: Klient nie jest właścicielem zasobu (plan/zamówienie).
+  - When: Próbuje otworzyć URL zasobu.
+  - Then: System zwraca odmowę dostępu i nie ujawnia danych.
 
 ---
 
 ### 4.4.2 WF-COM-002: Powiadomienia o zdarzeniach
-**Opis:** System wysy?a powiadomienia (e-mail/SMS) o kluczowych zdarzeniach w procesach.  
-**User Story:** Jako klient chc? dostawa? powiadomienia o zmianach statusu (zam�wienie/projekt/transmisja), aby wiedzie? co si? dzieje.  
-**Cel biznesowy:** Zmniejszenie liczby zapyta? do obs?ugi i poprawa do?wiadczenia klienta.  
-**Warunki wst?pne:** U?ytkownik poda? kana? kontaktu (e-mail/telefon).  
-**Warunki ko?cowe:** Powiadomienie zosta?o wys?ane lub oznaczone jako b??d wysy?ki.
+**Opis:** System wysyła powiadomienia (e-mail/SMS) o kluczowych zdarzeniach w procesach.  
+**User Story:** Jako klient chcę dostawać powiadomienia o zmianach statusu (zamówienie/projekt/transmisja), aby wiedzieć co się dzieje.  
+**Cel biznesowy:** Zmniejszenie liczby zapytań do obsługi i poprawa doświadczenia klienta.  
+**Warunki wstępne:** Użytkownik podał kanał kontaktu (e-mail/telefon).  
+**Warunki końcowe:** Powiadomienie zostało wysłane lub oznaczone jako błąd wysyłki.
 
 **Kryteria akceptacji:**
-- **WF-COM-002-01: Powiadomienie o projekcie do akceptacji (Scenariusz g?�wny)**
-  - Given: Projekt nagrobka zmieni? status na �Do akceptacji�.
-  - When: System rejestruje zmian? statusu.
-  - Then: System wysy?a powiadomienie do klienta z linkiem do ekranu akceptacji.
-- **WF-COM-002-02: Brak kana?u kontaktu (Scenariusz alternatywny)**
+- **WF-COM-002-01: Powiadomienie o projekcie do akceptacji (Scenariusz główny)**
+  - Given: Projekt nagrobka zmienił status na „Do akceptacji”.
+  - When: System rejestruje zmianę statusu.
+  - Then: System wysyła powiadomienie do klienta z linkiem do ekranu akceptacji.
+- **WF-COM-002-02: Brak kanału kontaktu (Scenariusz alternatywny)**
   - Given: Zdarzenie wymaga powiadomienia.
   - When: Brak e-mail/telefonu w profilu.
-  - Then: System nie wysy?a powiadomienia i oznacza zdarzenie do obs?ugi (np. w panelu pracownika).
-- **WF-COM-002-03: B??d dostawcy powiadomie? (Scenariusz wyj?tkowy)**
-  - Given: System pr�buje wys?a? powiadomienie.
-  - When: Dostawca e-mail/SMS zwraca b??d.
-  - Then: System rejestruje b??d i podejmuje ponown? pr�b? zgodnie z polityk? retry (szczeg�?y w WNF).
+  - Then: System nie wysyła powiadomienia i oznacza zdarzenie do obsługi (np. w panelu pracownika).
+- **WF-COM-002-03: Błąd dostawcy powiadomień (Scenariusz wyjątkowy)**
+  - Given: System próbuje wysłać powiadomienie.
+  - When: Dostawca e-mail/SMS zwraca błąd.
+  - Then: System rejestruje błąd i podejmuje ponowną próbę zgodnie z polityką retry (szczegóły w WNF).
 
 ---
 
-## 4.5 Priorytetyzacja wymaga? dla MVP (model warto??/koszt/ryzyko)
+## 4.5 Priorytetyzacja wymagań dla MVP (model wartość/koszt/ryzyko)
 
-Priorytetyzacja wymaga? dla MVP jest wykonana w spos�b obiektywny, w oparciu o cztery czynniki oceniane w skali Fibonacciego (1, 2, 3, 5, 8, 13, 21): Korzy??, Kara, Koszt, Ryzyko. Skala Fibonacciego jest powszechnie stosowana w estymacjach w Agile jako skala wzgl?dna.
+Priorytetyzacja wymagań dla MVP jest wykonana w sposób obiektywny, w oparciu o cztery czynniki oceniane w skali Fibonacciego (1, 2, 3, 5, 8, 13, 21): Korzyść, Kara, Koszt, Ryzyko. Skala Fibonacciego jest powszechnie stosowana w estymacjach w Agile jako skala względna.
 
-**Wz�r:**
-Priorytet = (Korzy?? + Kara) / (Koszt + Ryzyko)
+**Wzór:**
+Priorytet = (Korzyść + Kara) / (Koszt + Ryzyko)
 
-Im wy?sza warto??, tym lepszy kandydat do MVP (wi?cej warto?ci wzgl?dem wysi?ku i ryzyka).
+Im wyższa wartość, tym lepszy kandydat do MVP (więcej wartości względem wysiłku i ryzyka).
 
 ### Tabela priorytetyzacji (kandydaci do MVP)
-| Funkcja (kandydat) | Korzy?? | Kara | Koszt | Ryzyko | Priorytet |
+| Funkcja (kandydat) | Korzyść | Kara | Koszt | Ryzyko | Priorytet |
 |---|---:|---:|---:|---:|---:|
-| WF-TR-003 Do??czenie do transmisji przez link | 13 | 21 | 5 | 8 | 2.14 |
+| WF-TR-003 Dołączenie do transmisji przez link | 13 | 21 | 5 | 8 | 2.14 |
 | WF-TR-002 Generowanie linku/tokena transmisji | 13 | 21 | 8 | 8 | 2.13 |
-| WF-NG-003 Zam�wienie i p?atno?? za nagrobek | 13 | 13 | 13 | 13 | 1.00 |
+| WF-NG-003 Zamówienie i płatność za nagrobek | 13 | 13 | 13 | 13 | 1.00 |
 | WF-NG-002 Konfigurator i zapis projektu nagrobka | 13 | 8 | 13 | 8 | 1.17 |
 | WF-PN-001 Utworzenie planu pre-need (Draft) | 8 | 8 | 8 | 5 | 1.07 |
 | WF-NG-004 Akceptacja projektu (workflow) | 8 | 13 | 8 | 8 | 1.31 |
 | WF-COM-001 Role i uprawnienia | 13 | 13 | 8 | 5 | 2.00 |
 
 ### Wniosek: proponowany zakres MVP
-Na podstawie warto?ci priorytetu najwy?szymi kandydatami do MVP s?:
-- WF-TR-003 (join) oraz WF-TR-002 (token/link) � kluczowy rdze? transmisji.
-- WF-COM-001 (role/uprawnienia) � warunek bezpiecze?stwa dla danych i operacji.
-- WF-NG-004 (akceptacja projektu) � du?a kara za brak (ryzyko spor�w, b??d�w realizacji) przy umiarkowanym koszcie.
+Na podstawie wartości priorytetu najwyższymi kandydatami do MVP są:
+- WF-TR-003 (join) oraz WF-TR-002 (token/link) — kluczowy rdzeń transmisji.
+- WF-COM-001 (role/uprawnienia) — warunek bezpieczeństwa dla danych i operacji.
+- WF-NG-004 (akceptacja projektu) — duża kara za brak (ryzyko sporów, błędów realizacji) przy umiarkowanym koszcie.
 
-### 5.1.1 Dost?pno?? (Availability)
-- WNF-AV-001 (Transmisje): System musi umo?liwi? do??czenie do transmisji (join) dla co najmniej 99,5% pr�b w trakcie ceremonii (mierzone miesi?cznie).
-- WNF-AV-002 (Transmisje): Planowane okna serwisowe nie mog? obejmowa? godzin �szczytu ceremonii� (definicja szczytu do ustalenia).
-- WNF-AV-003 (Transmisje): System musi wykrywa? awarie komponent�w krytycznych (health-check) w czasie ? 30 sekund.
+### 5.1.1 Dostępność (Availability)
+- WNF-AV-001 (Transmisje): System musi umożliwić dołączenie do transmisji (join) dla co najmniej 99,5% prób w trakcie ceremonii (mierzone miesięcznie).
+- WNF-AV-002 (Transmisje): Planowane okna serwisowe nie mogą obejmować godzin „szczytu ceremonii” (definicja szczytu do ustalenia).
+- WNF-AV-003 (Transmisje): System musi wykrywać awarie komponentów krytycznych (health-check) w czasie ≤ 30 sekund.
 
-### 5.1.2 Wydajno?? i UX (Performance/UX)
-- WNF-PERF-001 (Transmisje): 95% sesji ogl?dania ma ?redni czas buforowania < 1 sekunda na minut? transmisji.
-- WNF-PERF-002 (Transmisje): Czas od klikni?cia linku do rozpocz?cia odtwarzania nie mo?e przekroczy? X sekund (p95) przy typowych warunkach sieci domowej (X do ustalenia).
+### 5.1.2 Wydajność i UX (Performance/UX)
+- WNF-PERF-001 (Transmisje): 95% sesji oglądania ma średni czas buforowania < 1 sekunda na minutę transmisji.
+- WNF-PERF-002 (Transmisje): Czas od kliknięcia linku do rozpoczęcia odtwarzania nie może przekroczyć X sekund (p95) przy typowych warunkach sieci domowej (X do ustalenia).
 
-### 5.1.3 Bezpiecze?stwo (Security)
-- WNF-SEC-001 (Transmisje): 100% pr�b dost?pu bez poprawnego tokenu/linku musi by? blokowanych (brak ujawnienia tre?ci).
-- WNF-SEC-002 (Transmisje): Wszystkie po??czenia musz? odbywa? si? przez HTTPS/TLS (brak HTTP).
-- WNF-SEC-003 (Transmisje): Token dost?pu musi by? czasowo ograniczony (TTL), a jego wa?no?? weryfikowana po stronie serwera.
+### 5.1.3 Bezpieczeństwo (Security)
+- WNF-SEC-001 (Transmisje): 100% prób dostępu bez poprawnego tokenu/linku musi być blokowanych (brak ujawnienia treści).
+- WNF-SEC-002 (Transmisje): Wszystkie połączenia muszą odbywać się przez HTTPS/TLS (brak HTTP).
+- WNF-SEC-003 (Transmisje): Token dostępu musi być czasowo ograniczony (TTL), a jego ważność weryfikowana po stronie serwera.
 
-### 5.1.4 Prywatno?? i RODO (Privacy/GDPR)
-- WNF-PRIV-001: Dane osobowe i dane o ceremoniach musz? by? przechowywane w EOG.
-- WNF-PRIV-002: Dane u?yte w ?rodowiskach testowych musz? by? zanonimizowane lub pseudonimizowane.
-- WNF-PRIV-003: Dost?p administracyjny do danych produkcyjnych musi by? ograniczony i rejestrowany (audyt).
+### 5.1.4 Prywatność i RODO (Privacy/GDPR)
+- WNF-PRIV-001: Dane osobowe i dane o ceremoniach muszą być przechowywane w EOG.
+- WNF-PRIV-002: Dane użyte w środowiskach testowych muszą być zanonimizowane lub pseudonimizowane.
+- WNF-PRIV-003: Dostęp administracyjny do danych produkcyjnych musi być ograniczony i rejestrowany (audyt).
 
-### 5.1.5 Skalowalno?? (Scalability)
-- WNF-SCAL-001 (Transmisje): Architektura powinna obs?u?y? r�wnolegle X ceremonii i Y ??cznych widz�w jednoczesnych (X/Y do ustalenia, je?li brak � w Open Issues).
+### 5.1.5 Skalowalność (Scalability)
+- WNF-SCAL-001 (Transmisje): Architektura powinna obsłużyć równolegle X ceremonii i Y łącznych widzów jednoczesnych (X/Y do ustalenia, jeśli brak – w Open Issues).
 
-# 5. Atrybuty Jako?ciowe Systemu
+# 5. Atrybuty Jakościowe Systemu
 
-Niniejszy rozdzia? opisuje atrybuty jako?ciowe projektowanego systemu informatycznego dla zak?adu pogrzebowego oferuj?cego us?ugi typu *pre-need*, sprzeda? i projektowanie nagrobk�w online oraz transmisje ceremonii pogrzebowych. 
-
----
-
-## 5.1. Za?o?enia architektoniczne
-
-System zosta? zaprojektowany w architekturze **mikroserwis�w**, w kt�rej ka?da us?uga odpowiada za odr?bny obszar funkcjonalny. Przyj?to nast?puj?ce mikroserwisy:
-
-- **User Service** � zarz?dzanie kontami u?ytkownik�w i autoryzacj?
-- **Pre-Need Service** � obs?uga subskrypcji us?ug pogrzebowych
-- **Payment Service** � integracja z systemami p?atno?ci
-- **Design Service** � projektowanie i sprzeda? nagrobk�w online
-- **Streaming Service** � transmisja ceremonii pogrzebowych
-- **Notification Service** � powiadomienia e-mail i SMS
-- **API Gateway** � centralny punkt dost?pu do systemu
-
-Architektura ta umo?liwia niezale?ny rozw�j, wdra?anie i skalowanie poszczeg�lnych komponent�w.
+Niniejszy rozdział opisuje atrybuty jakościowe projektowanego systemu informatycznego dla zakładu pogrzebowego oferującego usługi typu *pre-need*, sprzedaż i projektowanie nagrobków online oraz transmisje ceremonii pogrzebowych. 
 
 ---
 
-## 5.2. Jako?? wykonania
+## 5.1. Założenia architektoniczne
 
-### 5.2.1. Wydajno?? (Performance)
+System został zaprojektowany w architekturze **mikroserwisów**, w której każda usługa odpowiada za odrębny obszar funkcjonalny. Przyjęto następujące mikroserwisy:
+
+- **User Service** – zarządzanie kontami użytkowników i autoryzacją
+- **Pre-Need Service** – obsługa subskrypcji usług pogrzebowych
+- **Payment Service** – integracja z systemami płatności
+- **Design Service** – projektowanie i sprzedaż nagrobków online
+- **Streaming Service** – transmisja ceremonii pogrzebowych
+- **Notification Service** – powiadomienia e-mail i SMS
+- **API Gateway** – centralny punkt dostępu do systemu
+
+Architektura ta umożliwia niezależny rozwój, wdrażanie i skalowanie poszczególnych komponentów.
+
+---
+
+## 5.2. Jakość wykonania
+
+### 5.2.1. Wydajność (Performance)
 
 - **WNF-WYD-01**  
-  Czas odpowiedzi ka?dego mikroserwisu na zapytanie REST API nie mo?e przekroczy? **500 ms** dla 95% ??da?.
+  Czas odpowiedzi każdego mikroserwisu na zapytanie REST API nie może przekroczyć **500 ms** dla 95% żądań.
 
 - **WNF-WYD-02**  
-  API Gateway nie mo?e zwi?ksza? czasu odpowiedzi o wi?cej ni? **100 ms** wzgl?dem bezpo?redniego wywo?ania mikroserwisu.
+  API Gateway nie może zwiększać czasu odpowiedzi o więcej niż **100 ms** względem bezpośredniego wywołania mikroserwisu.
 
 - **WNF-WYD-03**  
-  Mikroserwis streamingu musi obs?ugiwa? co najmniej **3000 jednoczesnych odbiorc�w transmisji** bez spadku jako?ci obrazu.
+  Mikroserwis streamingu musi obsługiwać co najmniej **3000 jednoczesnych odbiorców transmisji** bez spadku jakości obrazu.
 
 - **WNF-WYD-04**  
-  P?atno?ci w aplikacji musz? dzia?a? asynchronicznie, aby nie blokowa? u?ytkownika w oknie przetwarzania.
+  Płatności w aplikacji muszą działać asynchronicznie, aby nie blokować użytkownika w oknie przetwarzania.
 
 - **WNF-WYD-05**  
-  P?atno?ci cykliczne musz? by? wykonywane zawsze tego samego dnia miesi?ca. Serwis **Pre-Need Service** musi przetwarza? operacje wielow?tkowo.
+  Płatności cykliczne muszą być wykonywane zawsze tego samego dnia miesiąca. Serwis **Pre-Need Service** musi przetwarzać operacje wielowątkowo.
 
 ---
 
-### 5.2.2. Dost?pno?? i odporno?? na awarie (Availability & Resilience)
+### 5.2.2. Dostępność i odporność na awarie (Availability & Resilience)
 
 - **WNF-NIEZ-01**  
-  Awaria pojedynczego mikroserwisu nie mo?e powodowa? niedost?pno?ci ca?ego systemu.
+  Awaria pojedynczego mikroserwisu nie może powodować niedostępności całego systemu.
 
 - **WNF-NIEZ-02**  
-  Mikroserwisy musz? stosowa? mechanizmy **circuit breaker**, **retry** oraz **timeout** w komunikacji mi?dzyserwisowej.
+  Mikroserwisy muszą stosować mechanizmy **circuit breaker**, **retry** oraz **timeout** w komunikacji międzyserwisowej.
 
 - **WNF-NIEZ-03**  
-  System musi umo?liwia? aktualizacj? pojedynczego mikroserwisu bez przerywania dzia?ania pozosta?ych us?ug.
+  System musi umożliwiać aktualizację pojedynczego mikroserwisu bez przerywania działania pozostałych usług.
 
 ---
 
-### 5.2.3. Skalowalno?? (Scalability)
+### 5.2.3. Skalowalność (Scalability)
 
 - **WNF-SKAL-01**  
-  Ka?dy mikroserwis musi by? skalowalny horyzontalnie niezale?nie od pozosta?ych komponent�w.
+  Każdy mikroserwis musi być skalowalny horyzontalnie niezależnie od pozostałych komponentów.
 
 - **WNF-SKAL-02**  
-  Mikroserwis streamingu musi umo?liwia? dynamiczne skalowanie w trakcie trwania ceremonii pogrzebowej.
+  Mikroserwis streamingu musi umożliwiać dynamiczne skalowanie w trakcie trwania ceremonii pogrzebowej.
 
 - **WNF-SKAL-03**  
-  System musi obs?ugiwa? co najmniej **10 000 jednoczesnych sesji u?ytkownik�w**.
+  System musi obsługiwać co najmniej **10 000 jednoczesnych sesji użytkowników**.
 
 ---
 
-### 5.3.2. Bezpiecze?stwo (Security)
+### 5.3.2. Bezpieczeństwo (Security)
 
 - **WNF-BEZ-01**  
-  Uwierzytelnianie i autoryzacja u?ytkownik�w musz? by? realizowane centralnie poprzez **User Service** z wykorzystaniem token�w JWT. Dedykowana biblioteka zostanie u?yta to odszyfrowania token�w przez ka?dy z serwis�w.
+  Uwierzytelnianie i autoryzacja użytkowników muszą być realizowane centralnie poprzez **User Service** z wykorzystaniem tokenów JWT. Dedykowana biblioteka zostanie użyta to odszyfrowania tokenów przez każdy z serwisów.
 
 - **WNF-BEZ-02**  
-  Has?a u?ytkownik�w musz? by? przechowywane w postaci haszy z u?yciem algorytmu **bcrypt**. Ka?dy u?ytkownik b?dzie mia? inny SALT zapisany w bazie danych.
+  Hasła użytkowników muszą być przechowywane w postaci haszy z użyciem algorytmu **bcrypt**. Każdy użytkownik będzie miał inny SALT zapisany w bazie danych.
 
 - **WNF-BEZ-03**  
-  Dost?p do transmisji ceremonii pogrzebowych musi by? ograniczony do u?ytkownik�w posiadaj?cych odpowiednie uprawnienia lub link z zaproszeniem.
+  Dostęp do transmisji ceremonii pogrzebowych musi być ograniczony do użytkowników posiadających odpowiednie uprawnienia lub link z zaproszeniem.
 
 - **WNF-BEZ-04**  
-  Po??czenia wewn?trz mikroserwis�w i z aplikacj? klienck? zostan? zaszyfrowane certyfikatem TLSv1.3
+  Połączenia wewnątrz mikroserwisów i z aplikacją kliencką zostaną zaszyfrowane certyfikatem TLSv1.3
 
 ---
 
-## 5.3. Jako?? projektu
+## 5.3. Jakość projektu
 
-### 5.3.1. Modyfikowalno??
+### 5.3.1. Modyfikowalność
 
 - **WNF-MOD-01**  
-  Ka?dy mikroserwis musi posiada? w?asn?, niezale?n? baz? danych (zasada *Database per Service*).
+  Każdy mikroserwis musi posiadać własną, niezależną bazę danych (zasada *Database per Service*).
 
 - **WNF-MOD-02**  
-  Mikroserwisy nie mog? komunikowa? si? bezpo?rednio poprzez bazy danych.
+  Mikroserwisy nie mogą komunikować się bezpośrednio poprzez bazy danych.
 
 - **WNF-MOD-03**  
-  Komunikacja mi?dzy mikroserwisami musi odbywa? si? wy??cznie poprzez API REST lub kolejki.
+  Komunikacja między mikroserwisami musi odbywać się wyłącznie poprzez API REST lub kolejki.
 
 ---
 
-### 5.3.3. Obserwowalno?? (Observability)
+### 5.3.3. Obserwowalność (Observability)
 
 - **WNF-OBS-01**  
-  Ka?dy mikroserwis musi generowa? logi zbierane poprzez Logstash i wy?wietlane w Kibanie.
+  Każdy mikroserwis musi generować logi zbierane poprzez Logstash i wyświetlane w Kibanie.
 
 - **WNF-OBS-02**  
-  System musi umo?liwia? monitorowanie czasu odpowiedzi oraz liczby b??d�w dla ka?dego mikroserwisu.
+  System musi umożliwiać monitorowanie czasu odpowiedzi oraz liczby błędów dla każdego mikroserwisu.
 
 - **WNF-OBS-03**  
-  System musi wspiera? ?ledzenie przep?ywu pojedynczego ??dania pomi?dzy mikroserwisami (*distributed tracing*).
+  System musi wspierać śledzenie przepływu pojedynczego żądania pomiędzy mikroserwisami (*distributed tracing*).
 
 - **WNF-OBS-04**  
-  Metryki dotycz?ce mikroserwis�w (CPU, RAM, REQ/S) b?d? zbierane przez Prometheus'a i prezentowane w Grafanie.
+  Metryki dotyczące mikroserwisów (CPU, RAM, REQ/S) będą zbierane przez Prometheus'a i prezentowane w Grafanie.
 
 ---
 
-### 5.3.4. Przeno?no?? i wdra?anie (Portability & Deployment)
+### 5.3.4. Przenośność i wdrażanie (Portability & Deployment)
 
 - **WNF-DEP-01**  
-  Ka?dy mikroserwis musi by? dostarczany jako osobny kontener Docker.
+  Każdy mikroserwis musi być dostarczany jako osobny kontener Docker.
 
 - **WNF-DEP-02**  
-  System musi by? uruchamialny lokalnie za pomoc? jednego polecenia `docker-compose up`.
+  System musi być uruchamialny lokalnie za pomocą jednego polecenia `docker-compose up`.
 
 - **WNF-DEP-03**  
-  Architektura systemu musi umo?liwia? automatyczne skalowanie us?ug w ?rodowisku orkiestracyjnym (np. Kubernetes).
+  Architektura systemu musi umożliwiać automatyczne skalowanie usług w środowisku orkiestracyjnym (np. Kubernetes).
 
 ---
 
-## 5.4. Priorytetyzacja kluczowych wymaga? jako?ciowych
+## 5.4. Priorytetyzacja kluczowych wymagań jakościowych
 
-W celu zapewnienia sp�jnego i odpornego systemu, opartego na architekturze mikroserwisowej, przeprowadzono priorytetyzacj? najwa?niejszych wymaga? jako?ciowych.  
-Ocena zosta?a wykonana w oparciu o **warto?? biznesow?**, **koszt implementacji** oraz **ryzyko techniczne**, zgodnie ze skal? Fibonacciego.
+W celu zapewnienia spójnego i odpornego systemu, opartego na architekturze mikroserwisowej, przeprowadzono priorytetyzację najważniejszych wymagań jakościowych.  
+Ocena została wykonana w oparciu o **wartość biznesową**, **koszt implementacji** oraz **ryzyko techniczne**, zgodnie ze skalą Fibonacciego.
 
 ### 5.4.1. Metoda oceny
 
-Ka?de wymaganie oceniono wed?ug kryteri�w:
+Każde wymaganie oceniono według kryteriów:
 
-- **Korzy??** � warto?? biznesowa wynikaj?ca z realizacji wymagania,
-- **Kara** � konsekwencje braku realizacji wymagania,
-- **Koszt** � nak?ad pracy i z?o?ono?? implementacji,
-- **Ryzyko** � ryzyko techniczne i architektoniczne.
+- **Korzyść** – wartość biznesowa wynikająca z realizacji wymagania,
+- **Kara** – konsekwencje braku realizacji wymagania,
+- **Koszt** – nakład pracy i złożoność implementacji,
+- **Ryzyko** – ryzyko techniczne i architektoniczne.
 
-Wszystkie warto?ci oszacowano w **skali Fibonacciego**:  
+Wszystkie wartości oszacowano w **skali Fibonacciego**:  
 **1, 2, 3, 5, 8, 13, 21**
 
-### Wz�r priorytetu
+### Wzór priorytetu
 
-> **Priorytet = (Korzy?? + Kara) / (Koszt + Ryzyko)**
+> **Priorytet = (Korzyść + Kara) / (Koszt + Ryzyko)**
 
 ---
 
-### 5.4.2. Tabela priorytetyzacji wymaga?
+### 5.4.2. Tabela priorytetyzacji wymagań
 
-| ID     | Wymaganie                                                                     | Korzy?? | Kara | Koszt | Ryzyko | Priorytet |
+| ID     | Wymaganie                                                                     | Korzyść | Kara | Koszt | Ryzyko | Priorytet |
 |--------|-------------------------------------------------------------------------------|---------|------|-------|--------|-----------|
-| **Q1** | WNF-NIEZ-01 � Awaria jednego mikroserwisu nie powoduje niedost?pno?ci systemu | 21      | 21   | 13    | 8      | **2.00**  |
-| **Q2** | WNF-NIEZ-02 � Circuit breaker, retry, timeout                                 | 13      | 13   | 8     | 8      | **1.63**  |
-| **Q3** | WNF-NIEZ-03 � Aktualizacja mikroserwisu bez downtime                          | 13      | 8    | 13    | 5      | **1.05**  |
-| **Q4** | WNF-SKAL-01 � Niezale?ne skalowanie mikroserwis�w                             | 21      | 21   | 13    | 13     | **1.62**  |
-| **Q5** | WNF-WYD-03 � Streaming 3000 odbiorc�w                                         | 21      | 21   | 21    | 21     | **1.00**  |
-| **Q6** | WNF-BEZ-01 � Centralny serwis zar?dzaj?cy u?ytkownikami (User Service)        | 13      | 13   | 8     | 5      | **1.63**  |
-| **Q7** | WNF-BEZ-03 � Kontrola dost?pu do transmisji                                   | 13      | 8    | 5     | 3      | **2.10**  |
-| **Q8** | WNF-OBS-03 � Distributed tracing                                              | 8       | 5    | 5     | 5      | **1.08**  |
+| **Q1** | WNF-NIEZ-01 – Awaria jednego mikroserwisu nie powoduje niedostępności systemu | 21      | 21   | 13    | 8      | **2.00**  |
+| **Q2** | WNF-NIEZ-02 – Circuit breaker, retry, timeout                                 | 13      | 13   | 8     | 8      | **1.63**  |
+| **Q3** | WNF-NIEZ-03 – Aktualizacja mikroserwisu bez downtime                          | 13      | 8    | 13    | 5      | **1.05**  |
+| **Q4** | WNF-SKAL-01 – Niezależne skalowanie mikroserwisów                             | 21      | 21   | 13    | 13     | **1.62**  |
+| **Q5** | WNF-WYD-03 – Streaming 3000 odbiorców                                         | 21      | 21   | 21    | 21     | **1.00**  |
+| **Q6** | WNF-BEZ-01 – Centralny serwis zarądzający użytkownikami (User Service)        | 13      | 13   | 8     | 5      | **1.63**  |
+| **Q7** | WNF-BEZ-03 – Kontrola dostępu do transmisji                                   | 13      | 8    | 5     | 3      | **2.10**  |
+| **Q8** | WNF-OBS-03 – Distributed tracing                                              | 8       | 5    | 5     | 5      | **1.08**  |
 
 ---
 
-### 5.4.3. Ranking wymaga? wg priorytetu
+### 5.4.3. Ranking wymagań wg priorytetu
 
-1. **Q7 � Kontrola dost?pu do transmisji** (2.10)
-2. **Q1 � Odporno?? na awari? mikroserwisu** (2.00)
-3. **Q2 / Q6 � Mechanizmy odporno?ci i JWT** (1.63)
-4. **Q4 � Skalowalno?? mikroserwis�w** (1.62)
-5. **Q8 � Distributed tracing** (1.08)
-6. **Q3 � Aktualizacja bez downtime** (1.05)
-7. **Q5 � Streaming 3000 odbiorc�w** (1.00)
+1. **Q7 – Kontrola dostępu do transmisji** (2.10)
+2. **Q1 – Odporność na awarię mikroserwisu** (2.00)
+3. **Q2 / Q6 – Mechanizmy odporności i JWT** (1.63)
+4. **Q4 – Skalowalność mikroserwisów** (1.62)
+5. **Q8 – Distributed tracing** (1.08)
+6. **Q3 – Aktualizacja bez downtime** (1.05)
+7. **Q5 – Streaming 3000 odbiorców** (1.00)
 
 ---
 
-### 5.4.4. Interpretacja wynik�w
+### 5.4.4. Interpretacja wyników
 
-Najwy?szy priorytet uzyska?y wymagania, kt�re:
-- maj? **wysok? warto?? biznesow?**,
-- nios? **powa?ne konsekwencje w przypadku braku realizacji**,
+Najwyższy priorytet uzyskały wymagania, które:
+- mają **wysoką wartość biznesową**,
+- niosą **poważne konsekwencje w przypadku braku realizacji**,
 - przy relatywnie **umiarkowanym koszcie i ryzyku**.
 
-Szczeg�lnie istotne s?:
-- odporno?? na awarie mikroserwis�w,
-- bezpiecze?stwo dost?pu do transmisji,
-- centralne uwierzytelnianie u?ytkownik�w.
+Szczególnie istotne są:
+- odporność na awarie mikroserwisów,
+- bezpieczeństwo dostępu do transmisji,
+- centralne uwierzytelnianie użytkowników.
 
 ---
 
 ## 5.5. Wnioski
 
-Zastosowanie architektury mikroserwisowej pozwala na elastyczne dopasowanie systemu do zr�?nicowanych wymaga? biznesowych zak?adu pogrzebowego. Szczeg�ln? uwag? po?wi?cono bezpiecze?stwu, dost?pno?ci oraz skalowalno?ci, co jest kluczowe w kontek?cie us?ug finansowych oraz transmisji ceremonii pogrzebowych w czasie rzeczywistym.
-
+Zastosowanie architektury mikroserwisowej pozwala na elastyczne dopasowanie systemu do zróżnicowanych wymagań biznesowych zakładu pogrzebowego. Szczególną uwagę poświęcono bezpieczeństwu, dostępności oraz skalowalności, co jest kluczowe w kontekście usług finansowych oraz transmisji ceremonii pogrzebowych w czasie rzeczywistym.
 

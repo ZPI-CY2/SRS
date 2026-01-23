@@ -245,11 +245,11 @@ Makiety zawierają ścieżkę:
 - Katalog → karta produktu → konfigurator → wycena → koszyk → checkout → status zamówienia → akceptacja projektu.
 
 **Podgląd ekranów procesu:**
-![Ekran startowy](../mockups/1_Start.png)
-![Projektowanie i konfiguracja](../mockups/3_Projektowanie.png)
+![Ekran startowy](/mockups/1_Start.png)
+![Projektowanie i konfiguracja](/mockups/3_Projektowanie.png)
 
 Link do szablonu (pełny przebieg):
-![Pełny szablon animacja](../mockups/5_FullTemplate.gif)
+![Pełny szablon animacja](/mockups/5_FullTemplate.gif)
 
 ### Pozostałe kluczowe ekrany (opis tekstowy, bez pełnych makiet)
 A) Pre-need:
@@ -257,21 +257,21 @@ A) Pre-need:
 - Podsumowanie kosztów i status planu (draft/zaakceptowany/opłacony).
 - Dokumenty i zgody.
 
-![Planowanie Pre-need](../mockups/2_Planowanie.png)
+![Planowanie Pre-need](/mockups/2_Planowanie.png)
 
 B) Transmisje ceremonii:
 - Strona dołączenia do transmisji przez prywatny link/token.
 - Panel operatora: powiązanie transmisji z ceremonią, test A/V, status transmisji.
 - Panel organizatora: zamówienie transmisji i wygenerowanie linku.
 
-![Panel Transmisji](../mockups/4_Transmisje.png)
+![Panel Transmisji](/mockups/4_Transmisje.png)
 
 C) Projektowanie nagrobków online:
 - Interfejs konfiguratora wizualnego (wybór kształtu, rodzaju kamienia, napisów).
 - Podgląd projektu w czasie rzeczywistym.
 - Dynamiczna kalkulacja ceny w zależności od wybranej konfiguracji i dodatków.
 
-![Projektowanie i konfiguracja](../mockups/3_Projektowanie.png)
+![Projektowanie i konfiguracja](/mockups/3_Projektowanie.png)
 
 ## 3.2 Interfejsy programowe (API) i integracje
 

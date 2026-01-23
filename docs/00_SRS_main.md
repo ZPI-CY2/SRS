@@ -10,7 +10,6 @@ Wersja robocza: 0.2
 - [04 — Wymagania funkcjonalne](04_functional_requirements.md)
 - [05 — Atrybuty jakościowe (WNF)](05_nonfunctional_requirements.md)
 - [06 — Odkrywanie i analiza wymagań](06_analysis.md)
-- [07 — Współpraca i jakość](07_collaboration_quality.md)
 
 ## Dodatki
 - [Dodatek A — Diagram przypadków użycia](appendix_a_usecase_diagram.md)

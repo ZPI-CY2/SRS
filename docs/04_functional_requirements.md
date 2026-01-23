@@ -356,5 +356,3 @@ Na podstawie wartości priorytetu najwyższymi kandydatami do MVP są:
 - WF-TR-003 (join) oraz WF-TR-002 (token/link) — kluczowy rdzeń transmisji.
 - WF-COM-001 (role/uprawnienia) — warunek bezpieczeństwa dla danych i operacji.
 - WF-NG-004 (akceptacja projektu) — duża kara za brak (ryzyko sporów, błędów realizacji) przy umiarkowanym koszcie.
-
-Funkcje o niższym priorytecie (np. pełne zamówienie/płatność, konfigurator w rozbudowanej formie, rozbudowany pre-need) mogą wejść do MVP tylko jeśli zespół ma zapas czasu lub jeśli interesariusz uzna je za krytyczne biznesowo.
